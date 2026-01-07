@@ -12,14 +12,14 @@ const CaseStudy = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -30,7 +30,7 @@ const CaseStudy = () => {
               Success Story
             </motion.div>
 
-            <motion.h2
+            <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -43,7 +43,7 @@ const CaseStudy = () => {
               </span>
             </motion.h2>
 
-            <motion.p
+            <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -52,8 +52,8 @@ const CaseStudy = () => {
             >
               We built a homepage style funnel that guided users to a free masterclass and into an application call. This automated lead generation system generated over one million dollars in revenue.
             </motion.p>
-
-            <motion.p
+            
+            <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -64,28 +64,35 @@ const CaseStudy = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
+            {/* Funnel Mockup Image */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="relative z-10 mb-6 rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10" />
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Funnel Analytics Dashboard" 
+                className="w-full h-48 sm:h-64 object-cover"
+              />
+            </motion.div>
+
+            <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 relative z-20 -mt-12 mx-4 sm:mx-0 shadow-xl">
               <div className="grid grid-cols-2 gap-6">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="text-center p-6 bg-green-500/10 rounded-2xl border border-green-500/20"
-                >
+                <motion.div whileHover={{ scale: 1.05 }} className="text-center p-6 bg-green-500/10 rounded-2xl border border-green-500/20">
                   <SafeIcon icon={FiDollarSign} className="w-12 h-12 text-green-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-green-400 mb-2">$1M+</div>
                   <div className="text-slate-300 text-sm">Revenue Generated</div>
                 </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="text-center p-6 bg-purple-500/10 rounded-2xl border border-purple-500/20"
-                >
+                
+                <motion.div whileHover={{ scale: 1.05 }} className="text-center p-6 bg-purple-500/10 rounded-2xl border border-purple-500/20">
                   <SafeIcon icon={FiTrendingUp} className="w-12 h-12 text-purple-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-purple-400 mb-2">350%</div>
                   <div className="text-slate-300 text-sm">Conversion Increase</div>
@@ -112,10 +119,10 @@ const CaseStudy = () => {
             </div>
 
             {/* Decorative elements */}
-            <motion.div
+            <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full blur-xl"
+              className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full blur-xl z-0" 
             />
           </motion.div>
         </div>

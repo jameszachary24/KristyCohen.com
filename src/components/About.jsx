@@ -12,14 +12,14 @@ const About = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <motion.h2
+            <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -31,8 +31,8 @@ const About = () => {
                 Kristy Cohen
               </span>
             </motion.h2>
-
-            <motion.p
+            
+            <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -41,8 +41,8 @@ const About = () => {
             >
               Former language analyst turned digital entrepreneur. I left the nine to five to build freedom based online businesses and help others do the same. My family and I have worked remotely around the world while helping clients scale.
             </motion.p>
-
-            <motion.p
+            
+            <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,26 +62,20 @@ const About = () => {
               className="group bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
             >
               Read More About Kristy
-              <SafeIcon 
-                icon={FiArrowRight} 
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" 
-              />
+              <SafeIcon icon={FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </motion.button>
           </motion.div>
 
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
+            <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 pr-20">
               <div className="space-y-6">
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 p-4 bg-slate-800/30 rounded-2xl"
-                >
+                <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-4 p-4 bg-slate-800/30 rounded-2xl">
                   <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
                     <SafeIcon icon={FiUsers} className="w-6 h-6 text-purple-400" />
                   </div>
@@ -90,11 +84,8 @@ const About = () => {
                     <div className="text-slate-300 text-sm">Clients Served</div>
                   </div>
                 </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 p-4 bg-slate-800/30 rounded-2xl"
-                >
+                
+                <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-4 p-4 bg-slate-800/30 rounded-2xl">
                   <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
                     <SafeIcon icon={FiAward} className="w-6 h-6 text-green-400" />
                   </div>
@@ -103,11 +94,8 @@ const About = () => {
                     <div className="text-slate-300 text-sm">Average Rating</div>
                   </div>
                 </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 p-4 bg-slate-800/30 rounded-2xl"
-                >
+                
+                <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-4 p-4 bg-slate-800/30 rounded-2xl">
                   <div className="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center">
                     <SafeIcon icon={FiMapPin} className="w-6 h-6 text-pink-400" />
                   </div>
@@ -119,12 +107,21 @@ const About = () => {
               </div>
             </div>
 
-            {/* Profile image placeholder */}
-            <motion.div
+            {/* Profile Image */}
+            <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-full blur-2xl"
-            />
+              className="absolute -top-12 -right-4 md:-right-12"
+            >
+              <div className="relative w-40 h-40 md:w-48 md:h-48">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-lg opacity-50" />
+                <img 
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                  alt="Kristy Cohen" 
+                  className="relative w-full h-full object-cover rounded-full border-4 border-slate-900 shadow-2xl"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

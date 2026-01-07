@@ -19,18 +19,41 @@ const Services = () => {
     { icon: FiZap, text: 'Fast turnaround times' }
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <section className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
-      
+    <section className="py-20 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+          alt="Background" 
+          className="w-full h-full object-cover opacity-5"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/90 to-slate-950" />
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -42,8 +65,7 @@ const Services = () => {
               That Convert
             </span>
           </motion.h2>
-          
-          <motion.p
+          <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,20 +76,23 @@ const Services = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+        >
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+            <motion.div 
+              key={index} 
+              variants={item}
               whileHover={{ scale: 1.02, y: -2 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/30 hover:border-purple-500/30 transition-all duration-300">
+              <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/30 hover:border-purple-500/30 transition-all duration-300 h-full">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-lg shadow-purple-500/5">
                     <SafeIcon icon={service.icon} className="w-6 h-6 text-purple-400" />
                   </div>
                   <span className="font-medium text-slate-200 group-hover:text-white transition-colors duration-200">
@@ -77,9 +102,9 @@ const Services = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -92,10 +117,7 @@ const Services = () => {
             className="group bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 mx-auto hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
           >
             Get Started Now
-            <SafeIcon 
-              icon={FiArrowRight} 
-              className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" 
-            />
+            <SafeIcon icon={FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
           </motion.button>
         </motion.div>
       </div>
