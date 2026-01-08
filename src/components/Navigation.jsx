@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiMenu, FiX } = FiIcons;
+const { FiMenu, FiX, FiLock } = FiIcons;
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,6 +68,19 @@ const Navigation = () => {
               </motion.div>
             </Link>
           ))}
+          
+          <div className="w-px h-6 bg-slate-800 mx-2" />
+          
+          <Link to="/portal">
+            <motion.div
+              whileHover={{ scale: 1.05, color: '#fff' }}
+              className="text-slate-400 text-sm flex items-center gap-2 hover:text-white transition-colors cursor-pointer"
+            >
+              <SafeIcon icon={FiLock} className="w-3 h-3" />
+              Client Login
+            </motion.div>
+          </Link>
+
           <Link to="/onboarding">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -109,6 +122,15 @@ const Navigation = () => {
                 </div>
               </Link>
             ))}
+            <Link to="/portal">
+              <div
+                className="block py-2 text-slate-400 hover:text-white flex items-center gap-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <SafeIcon icon={FiLock} className="w-3 h-3" />
+                Client Login
+              </div>
+            </Link>
             <Link to="/onboarding">
               <div
                 className="block w-full bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-full font-semibold mt-4 text-center text-white"

@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import FormStepper from './FormStepper';
 
-const { FiArrowRight, FiArrowLeft, FiCheck, FiBriefcase, FiDollarSign, FiTarget, FiUser, FiGlobe, FiCalendar } = FiIcons;
+const { FiArrowRight, FiArrowLeft, FiCheck, FiBriefcase, FiDollarSign, FiTarget, FiUser, FiGlobe, FiCalendar, FiLock } = FiIcons;
 
 const OnboardingFlow = () => {
   const [step, setStep] = useState(1);
@@ -17,7 +18,8 @@ const OnboardingFlow = () => {
     website: ''
   });
 
-  const totalSteps = 5;
+  const stepsLabels = ['Business', 'Revenue', 'Goals', 'Details', 'Success'];
+  const totalSteps = stepsLabels.length;
 
   const nextStep = () => setStep(prev => Math.min(prev + 1, totalSteps));
   const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
@@ -40,17 +42,6 @@ const OnboardingFlow = () => {
       nextStep();
     }
   };
-
-  const renderProgressBar = () => (
-    <div className="w-full h-2 bg-slate-800 rounded-full mb-12 overflow-hidden">
-      <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: `${(step / totalSteps) * 100}%` }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
-      />
-    </div>
-  );
 
   const Step1_BusinessType = () => {
     const options = [
@@ -281,16 +272,22 @@ const OnboardingFlow = () => {
           Book Your Time Now
         </button>
       </div>
-
-      <Link to="/" className="text-slate-400 hover:text-white transition-colors text-sm">
-        Return to Homepage
-      </Link>
+      
+      {/* Client Portal Teaser */}
+      <div className="mt-12 pt-8 border-t border-slate-800">
+        <p className="text-sm text-slate-400 mb-4">Existing client?</p>
+        <Link to="/portal" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors">
+          <SafeIcon icon={FiLock} className="w-4 h-4" />
+          Access Client Portal
+        </Link>
+      </div>
     </div>
   );
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      {step < 5 && renderProgressBar()}
+      {/* Replaced Simple Bar with FormStepper */}
+      <FormStepper currentStep={step} totalSteps={totalSteps} steps={stepsLabels} />
       
       <div className="relative min-h-[400px]">
         <AnimatePresence mode="wait">
