@@ -9,6 +9,8 @@ import FAQPage from './pages/FAQPage';
 import ClientOnboardingPage from './pages/ClientOnboardingPage';
 import ClientPortalPage from './pages/ClientPortalPage';
 import BookingPage from './pages/BookingPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import './App.css';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/onboarding" element={<ClientOnboardingPage />} />
           <Route path="/portal" element={<ClientPortalPage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
       </div>
     </Router>
