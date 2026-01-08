@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import ProjectTracker from '../components/ProjectTracker';
+import NotificationCenter from '../components/NotificationCenter';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
@@ -20,7 +22,7 @@ const ClientPortalPage = () => {
       
       <div className="pt-32 pb-20 relative px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
+          {/* Header with Notification Center */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -31,19 +33,25 @@ const ClientPortalPage = () => {
               <p className="text-slate-400 mt-2">Project: High-Ticket Webinar Funnel</p>
             </motion.div>
 
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors border border-slate-700"
+              className="flex items-center gap-4"
             >
-              <SafeIcon icon={FiMessageSquare} className="w-4 h-4" />
-              Contact Support
-            </motion.button>
+              <NotificationCenter />
+              
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-shadow hover:shadow-lg hover:shadow-purple-500/25"
+              >
+                <SafeIcon icon={FiMessageSquare} className="w-4 h-4" />
+                Contact Support
+              </motion.button>
+            </motion.div>
           </div>
 
-          {/* Alert Banner */}
+          {/* Alert Banner - Kept for High Priority Alerts */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -151,9 +159,11 @@ const ClientPortalPage = () => {
                 <p className="text-sm text-slate-300 mb-4">
                   Have questions about your funnel build? Schedule a quick call.
                 </p>
-                <button className="w-full bg-white text-slate-900 font-bold py-2.5 rounded-lg hover:bg-slate-200 transition-colors">
-                  Book Support Call
-                </button>
+                <Link to="/booking">
+                  <button className="w-full bg-white text-slate-900 font-bold py-2.5 rounded-lg hover:bg-slate-200 transition-colors">
+                    Book Support Call
+                  </button>
+                </Link>
               </div>
             </motion.div>
           </div>

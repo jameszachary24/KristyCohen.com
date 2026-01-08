@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import FormStepper from './FormStepper';
+import supabase from '../supabase/supabase';
 
-const { FiArrowRight, FiArrowLeft, FiCheck, FiBriefcase, FiDollarSign, FiTarget, FiUser, FiGlobe, FiCalendar, FiLock } = FiIcons;
+const { FiArrowRight, FiArrowLeft, FiCheck, FiBriefcase, FiDollarSign, FiTarget, FiUser, FiGlobe, FiCalendar, FiLock, FiLoader } = FiIcons;
 
 const OnboardingFlow = () => {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     businessType: '',
     revenue: '',
@@ -30,16 +33,45 @@ const OnboardingFlow = () => {
 
   const toggleGoal = (goal) => {
     setFormData(prev => {
-      const goals = prev.goals.includes(goal)
+      const goals = prev.goals.includes(goal) 
         ? prev.goals.filter(g => g !== goal)
         : [...prev.goals, goal];
       return { ...prev, goals };
     });
   };
 
+  const handleFinalSubmit = async () => {
+    setIsSubmitting(true);
+    setError(null);
+    try {
+      const { error: dbError } = await supabase
+        .from('onboarding_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          business_type: formData.businessType,
+          revenue: formData.revenue,
+          goals: formData.goals,
+          website: formData.website
+        });
+
+      if (dbError) throw dbError;
+      nextStep();
+    } catch (err) {
+      console.error('Submission error:', err);
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      nextStep();
+      if (step === 4) {
+        handleFinalSubmit();
+      } else {
+        nextStep();
+      }
     }
   };
 
@@ -63,13 +95,10 @@ const OnboardingFlow = () => {
               key={option.id}
               whileHover={{ scale: 1.02, backgroundColor: 'rgba(139, 92, 246, 0.1)' }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => {
-                updateData('businessType', option.id);
-                nextStep();
-              }}
+              onClick={() => { updateData('businessType', option.id); nextStep(); }}
               className={`p-6 rounded-2xl border text-left transition-all duration-200 flex flex-col items-center justify-center gap-4 aspect-square ${
-                formData.businessType === option.id
-                  ? 'border-purple-500 bg-purple-500/10 text-white shadow-[0_0_20px_rgba(168,85,247,0.2)]'
+                formData.businessType === option.id 
+                  ? 'border-purple-500 bg-purple-500/10 text-white shadow-[0_0_20px_rgba(168,85,247,0.2)]' 
                   : 'border-slate-700 bg-slate-800/30 text-slate-300 hover:border-purple-500/50'
               }`}
             >
@@ -99,13 +128,10 @@ const OnboardingFlow = () => {
             <motion.button
               key={option.id}
               whileHover={{ scale: 1.01, x: 4 }}
-              onClick={() => {
-                updateData('revenue', option.id);
-                nextStep();
-              }}
+              onClick={() => { updateData('revenue', option.id); nextStep(); }}
               className={`w-full p-6 rounded-2xl border text-left transition-all duration-200 flex items-center justify-between group ${
-                formData.revenue === option.id
-                  ? 'border-purple-500 bg-purple-500/10 text-white'
+                formData.revenue === option.id 
+                  ? 'border-purple-500 bg-purple-500/10 text-white' 
                   : 'border-slate-700 bg-slate-800/30 text-slate-300 hover:border-purple-500/50'
               }`}
             >
@@ -113,9 +139,7 @@ const OnboardingFlow = () => {
                 <div className="font-bold text-lg group-hover:text-purple-300 transition-colors">{option.label}</div>
                 <div className="text-sm text-slate-400">{option.desc}</div>
               </div>
-              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                formData.revenue === option.id ? 'border-purple-500 bg-purple-500' : 'border-slate-600'
-              }`}>
+              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${formData.revenue === option.id ? 'border-purple-500 bg-purple-500' : 'border-slate-600'}`}>
                 {formData.revenue === option.id && <SafeIcon icon={FiCheck} className="w-3 h-3 text-white" />}
               </div>
             </motion.button>
@@ -127,12 +151,8 @@ const OnboardingFlow = () => {
 
   const Step3_Goals = () => {
     const goals = [
-      'Launch New Funnel',
-      'Optimize Existing Funnel',
-      'Email Automation',
-      'Run Paid Ads',
-      'Full Marketing System',
-      'Strategy Consulting'
+      'Launch New Funnel', 'Optimize Existing Funnel', 'Email Automation',
+      'Run Paid Ads', 'Full Marketing System', 'Strategy Consulting'
     ];
 
     return (
@@ -148,13 +168,11 @@ const OnboardingFlow = () => {
               onClick={() => toggleGoal(goal)}
               className={`p-5 rounded-xl border text-left transition-all duration-200 flex items-center gap-3 ${
                 formData.goals.includes(goal)
-                  ? 'border-purple-500 bg-purple-500/20 text-white'
+                  ? 'border-purple-500 bg-purple-500/20 text-white' 
                   : 'border-slate-700 bg-slate-800/30 text-slate-300 hover:border-purple-500/50'
               }`}
             >
-              <div className={`w-5 h-5 rounded border flex items-center justify-center ${
-                formData.goals.includes(goal) ? 'border-purple-500 bg-purple-500' : 'border-slate-500'
-              }`}>
+              <div className={`w-5 h-5 rounded border flex items-center justify-center ${formData.goals.includes(goal) ? 'border-purple-500 bg-purple-500' : 'border-slate-500'}`}>
                 {formData.goals.includes(goal) && <SafeIcon icon={FiCheck} className="w-3 h-3 text-white" />}
               </div>
               <span className="font-medium">{goal}</span>
@@ -166,8 +184,8 @@ const OnboardingFlow = () => {
             onClick={nextStep}
             disabled={formData.goals.length === 0}
             className={`px-8 py-3 rounded-full font-semibold flex items-center gap-2 transition-all ${
-              formData.goals.length > 0
-                ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg'
+              formData.goals.length > 0 
+                ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg' 
                 : 'bg-slate-800 text-slate-500 cursor-not-allowed'
             }`}
           >
@@ -186,8 +204,8 @@ const OnboardingFlow = () => {
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
-          <input
-            type="text"
+          <input 
+            type="text" 
             value={formData.name}
             onChange={(e) => updateData('name', e.target.value)}
             className="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
@@ -196,8 +214,8 @@ const OnboardingFlow = () => {
         </div>
         <div>
           <label className="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
-          <input
-            type="email"
+          <input 
+            type="email" 
             value={formData.email}
             onChange={(e) => updateData('email', e.target.value)}
             className="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
@@ -206,8 +224,8 @@ const OnboardingFlow = () => {
         </div>
         <div>
           <label className="block text-sm font-medium text-slate-300 mb-2">Website URL (Optional)</label>
-          <input
-            type="text"
+          <input 
+            type="text" 
             value={formData.website}
             onChange={(e) => updateData('website', e.target.value)}
             onKeyPress={handleKeyPress}
@@ -217,17 +235,31 @@ const OnboardingFlow = () => {
         </div>
       </div>
 
+      {error && (
+        <div className="text-red-400 text-sm bg-red-400/10 p-3 rounded-lg border border-red-400/20">
+          {error}
+        </div>
+      )}
+
       <div className="pt-6 flex justify-end">
         <button
-          onClick={nextStep}
-          disabled={!formData.name || !formData.email}
+          onClick={handleFinalSubmit}
+          disabled={!formData.name || !formData.email || isSubmitting}
           className={`px-8 py-3 rounded-full font-semibold flex items-center gap-2 transition-all ${
-            formData.name && formData.email
-              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg'
+            formData.name && formData.email && !isSubmitting
+              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg' 
               : 'bg-slate-800 text-slate-500 cursor-not-allowed'
           }`}
         >
-          See Results <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
+          {isSubmitting ? (
+            <>
+              <SafeIcon icon={FiLoader} className="w-4 h-4 animate-spin" /> Processing...
+            </>
+          ) : (
+            <>
+              See Results <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
+            </>
+          )}
         </button>
       </div>
     </div>
@@ -243,42 +275,42 @@ const OnboardingFlow = () => {
       >
         <SafeIcon icon={FiCheck} className="w-12 h-12 text-green-400" />
       </motion.div>
+      
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
         You're a Perfect Fit!
       </h2>
       <p className="text-xl text-slate-300 mb-8 max-w-lg mx-auto">
         Based on your profile, we can help you scale to the next level. Let's discuss your custom strategy on a call.
       </p>
-      
+
       <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 max-w-sm mx-auto mb-8">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-[2px]">
-            <img 
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-              alt="Kristy" 
-              className="w-full h-full rounded-full object-cover border-2 border-slate-900"
-            />
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Kristy" className="w-full h-full rounded-full object-cover border-2 border-slate-900" />
           </div>
           <div className="text-left">
             <div className="font-bold text-white">Discovery Call</div>
             <div className="text-sm text-slate-400">with Kristy Cohen</div>
           </div>
         </div>
+        
         <div className="flex items-center gap-2 text-slate-300 text-sm mb-6">
           <SafeIcon icon={FiCalendar} className="w-4 h-4" />
           <span>30 Minute Strategy Session</span>
         </div>
-        <button className="w-full bg-white text-slate-900 font-bold py-3 rounded-xl hover:bg-slate-200 transition-colors">
-          Book Your Time Now
-        </button>
+
+        <Link to="/booking">
+          <button className="w-full bg-white text-slate-900 font-bold py-3 rounded-xl hover:bg-slate-200 transition-colors">
+            Book Your Time Now
+          </button>
+        </Link>
       </div>
-      
+
       {/* Client Portal Teaser */}
       <div className="mt-12 pt-8 border-t border-slate-800">
         <p className="text-sm text-slate-400 mb-4">Existing client?</p>
         <Link to="/portal" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors">
-          <SafeIcon icon={FiLock} className="w-4 h-4" />
-          Access Client Portal
+          <SafeIcon icon={FiLock} className="w-4 h-4" /> Access Client Portal
         </Link>
       </div>
     </div>
@@ -309,9 +341,10 @@ const OnboardingFlow = () => {
       </div>
 
       {step > 1 && step < 5 && (
-        <button
+        <button 
           onClick={prevStep}
-          className="mt-8 flex items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors"
+          disabled={isSubmitting}
+          className="mt-8 flex items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <SafeIcon icon={FiArrowLeft} className="w-4 h-4" /> Back
         </button>

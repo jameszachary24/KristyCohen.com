@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
@@ -19,20 +20,17 @@ const FinalCTA = () => {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          <motion.h2
+          <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-6xl font-bold"
           >
-            Still{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Scrolling?
-            </span>
+            Still <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Scrolling?</span>
           </motion.h2>
-
-          <motion.p
+          
+          <motion.p 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,7 +39,7 @@ const FinalCTA = () => {
           >
             Let's jump on a call and answer your questions
           </motion.p>
-
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,21 +47,20 @@ const FinalCTA = () => {
             transition={{ delay: 0.4 }}
             className="pt-4"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-5 rounded-full font-semibold text-xl flex items-center gap-4 mx-auto hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
-            >
-              <SafeIcon icon={FiCalendar} className="w-6 h-6" />
-              Schedule A Call
-              <SafeIcon 
-                icon={FiArrowRight} 
-                className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" 
-              />
-            </motion.button>
+            <Link to="/booking">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="group bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-5 rounded-full font-semibold text-xl flex items-center gap-4 mx-auto hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
+              >
+                <SafeIcon icon={FiCalendar} className="w-6 h-6" />
+                Schedule A Call
+                <SafeIcon icon={FiArrowRight} className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" />
+              </motion.button>
+            </Link>
           </motion.div>
-
-          <motion.p
+          
+          <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

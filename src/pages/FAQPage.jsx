@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Navigation from '../components/Navigation';
@@ -127,18 +128,17 @@ const FAQPage = () => {
             >
               <SafeIcon icon={FiHelpCircle} className="w-10 h-10 text-purple-400" />
             </motion.div>
-            <motion.h1
+            
+            <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Frequently Asked{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Questions
-              </span>
+              Frequently Asked <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Questions</span>
             </motion.h1>
-            <motion.p
+            
+            <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -201,10 +201,7 @@ const FAQPage = () => {
                     transition={{ duration: 0.3 }}
                     className="flex-shrink-0"
                   >
-                    <SafeIcon 
-                      icon={openIndex === index ? FiMinus : FiPlus} 
-                      className="w-6 h-6 text-purple-400" 
-                    />
+                    <SafeIcon icon={openIndex === index ? FiMinus : FiPlus} className="w-6 h-6 text-purple-400" />
                   </motion.div>
                 </button>
                 <AnimatePresence>
@@ -239,29 +236,28 @@ const FAQPage = () => {
             className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-12 border border-slate-700/50"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Still Have{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Questions?
-              </span>
+              Still Have <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Questions?</span>
             </h2>
             <p className="text-xl text-slate-300 mb-8">
               Let's jump on a call and get all your questions answered
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 mx-auto hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
-            >
-              Schedule Free Consultation
-              <SafeIcon icon={FiIcons.FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-            </motion.button>
+            <Link to="/booking">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="group bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 mx-auto hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
+              >
+                Schedule Free Consultation
+                <SafeIcon icon={FiIcons.FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </motion.button>
+            </Link>
             <p className="text-sm text-slate-400 mt-4">
               No obligations • Free 30-minute strategy session
             </p>
           </motion.div>
         </div>
       </section>
-
+      
       <Footer />
     </div>
   );
