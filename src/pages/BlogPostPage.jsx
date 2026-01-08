@@ -1,29 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import NewsletterWidget from '../components/NewsletterWidget';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { blogPosts } from '../data/blogPosts';
 
-const { FiArrowLeft, FiCalendar, FiClock, FiShare2, FiUser } = FiIcons;
+const { FiArrowLeft, FiShare2, FiCheck, FiArrowRight } = FiIcons;
 
 const BlogPostPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
   
   const post = blogPosts.find(p => p.slug === slug);
+
+  // Get Related Posts: Same category, excluding current post, limit to 3
+  const relatedPosts = blogPosts
+    .filter(p => p.category === post?.category && p.id !== post?.id)
+    .slice(0, 3);
+  
+  // Fallback if not enough related posts in category
+  const extraPosts = relatedPosts.length < 3 
+    ? blogPosts.filter(p => p.id !== post?.id && !relatedPosts.includes(p)).slice(0, 3 - relatedPosts.length)
+    : [];
+  
+  const finalRelatedPosts = [...relatedPosts, ...extraPosts];
 
   useEffect(() => {
     if (post) {
       document.title = `${post.title} | Kristy Cohen Blog`;
-      window.scrollTo(0, 0);
-    } else {
-      // Handle not found
-      // navigate('/blog'); 
     }
-  }, [post, navigate]);
+  }, [post]);
 
   if (!post) {
     return (
@@ -35,6 +45,12 @@ const BlogPostPage = () => {
       </div>
     );
   }
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
@@ -78,10 +94,26 @@ const BlogPostPage = () => {
                 </div>
               </div>
               
-              <div className="flex gap-2">
-                 <button className="p-2 text-slate-400 hover:text-purple-600 transition-colors">
-                    <SafeIcon icon={FiShare2} className="w-5 h-5" />
+              <div className="relative">
+                 <button 
+                  onClick={handleShare}
+                  className="p-2 text-slate-400 hover:text-purple-600 transition-colors flex items-center gap-2"
+                  title="Copy Link"
+                 >
+                    {copied ? <SafeIcon icon={FiCheck} className="w-5 h-5 text-green-500" /> : <SafeIcon icon={FiShare2} className="w-5 h-5" />}
                  </button>
+                 <AnimatePresence>
+                   {copied && (
+                     <motion.div 
+                       initial={{ opacity: 0, y: 10 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       exit={{ opacity: 0 }}
+                       className="absolute right-0 top-full mt-2 bg-slate-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                     >
+                       Link Copied!
+                     </motion.div>
+                   )}
+                 </AnimatePresence>
               </div>
             </div>
           </header>
@@ -97,8 +129,8 @@ const BlogPostPage = () => {
             </p>
           </div>
 
-          {/* Dummy Content Body */}
-          <div className="prose prose-lg prose-slate max-w-none">
+          {/* Content Body */}
+          <div className="prose prose-lg prose-slate max-w-none mb-16">
             <p className="lead text-xl text-slate-600 mb-8">
               In the fast-paced world of digital marketing, staying ahead of the curve is not just an advantage—it's a necessity. This article explores the critical aspects of {post.title.toLowerCase()} and how you can leverage them for growth.
             </p>
@@ -133,6 +165,36 @@ const BlogPostPage = () => {
             <p>
               {post.description} Implementing these strategies will set you on the path to better organic traffic and higher conversion rates. Remember, consistency is key.
             </p>
+          </div>
+
+          <hr className="border-slate-200 mb-16" />
+
+          {/* Newsletter Section */}
+          <div className="mb-20">
+            <NewsletterWidget />
+          </div>
+
+          {/* Related Posts */}
+          <div>
+            <h3 className="text-2xl font-bold font-serif mb-8">Read Next</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              {finalRelatedPosts.map((related) => (
+                <Link to={`/blog/${related.slug}`} key={related.id} className="group">
+                  <div className="bg-slate-50 h-full rounded-2xl p-6 border border-slate-100 hover:border-purple-200 transition-all duration-300 hover:shadow-lg">
+                    <div className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-3">
+                      {related.category}
+                    </div>
+                    <h4 className="font-bold text-lg mb-3 leading-tight group-hover:text-purple-700 transition-colors">
+                      {related.title}
+                    </h4>
+                    <div className="flex items-center gap-2 text-sm text-slate-500 mt-auto">
+                      <span>{related.readTime}</span>
+                      <SafeIcon icon={FiArrowRight} className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
 
         </article>

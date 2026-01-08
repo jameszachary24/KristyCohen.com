@@ -3,11 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import NewsletterWidget from '../components/NewsletterWidget';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { blogPosts } from '../data/blogPosts';
 
-const { FiSearch, FiBookmark, FiMoreHorizontal, FiArrowRight } = FiIcons;
+const { FiSearch, FiBookmark, FiMoreHorizontal } = FiIcons;
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +16,6 @@ const BlogPage = () => {
 
   useEffect(() => {
     document.title = "Blog | Kristy Cohen - Marketing Insights";
-    window.scrollTo(0, 0);
   }, []);
 
   // Extract unique categories
@@ -158,16 +158,8 @@ const BlogPage = () => {
                 </div>
               </div>
 
-              {/* Newsletter */}
-              <div className="bg-purple-50 p-6 rounded-2xl">
-                <h3 className="font-bold text-slate-900 mb-2">Get the weekly digest</h3>
-                <p className="text-sm text-slate-600 mb-4">Join 10,000+ marketers getting the best funnel strategies delivered to their inbox.</p>
-                <Link to="/onboarding">
-                  <button className="w-full bg-slate-900 text-white py-2 rounded-full text-sm font-medium hover:bg-slate-800 transition-colors">
-                    Subscribe Free
-                  </button>
-                </Link>
-              </div>
+              {/* Newsletter Widget */}
+              <NewsletterWidget />
 
               {/* Quick Links */}
               <div>

@@ -34,7 +34,7 @@ const OnboardingFlow = () => {
   const toggleGoal = (goal) => {
     setFormData(prev => {
       const goals = prev.goals.includes(goal) 
-        ? prev.goals.filter(g => g !== goal)
+        ? prev.goals.filter(g => g !== goal) 
         : [...prev.goals, goal];
       return { ...prev, goals };
     });
@@ -75,7 +75,8 @@ const OnboardingFlow = () => {
     }
   };
 
-  const Step1_BusinessType = () => {
+  // Render Functions (Invoked directly to prevent re-mounting issues)
+  const renderStep1_BusinessType = () => {
     const options = [
       { id: 'coach', label: 'Coach / Consultant', icon: FiUser },
       { id: 'course', label: 'Course Creator', icon: FiBriefcase },
@@ -111,7 +112,7 @@ const OnboardingFlow = () => {
     );
   };
 
-  const Step2_Revenue = () => {
+  const renderStep2_Revenue = () => {
     const options = [
       { id: 'starter', label: 'Just Starting', desc: '$0 - $5k / mo' },
       { id: 'growing', label: 'Growing', desc: '$5k - $20k / mo' },
@@ -149,10 +150,14 @@ const OnboardingFlow = () => {
     );
   };
 
-  const Step3_Goals = () => {
+  const renderStep3_Goals = () => {
     const goals = [
-      'Launch New Funnel', 'Optimize Existing Funnel', 'Email Automation',
-      'Run Paid Ads', 'Full Marketing System', 'Strategy Consulting'
+      'Launch New Funnel',
+      'Optimize Existing Funnel',
+      'Email Automation',
+      'Run Paid Ads',
+      'Full Marketing System',
+      'Strategy Consulting'
     ];
 
     return (
@@ -168,7 +173,7 @@ const OnboardingFlow = () => {
               onClick={() => toggleGoal(goal)}
               className={`p-5 rounded-xl border text-left transition-all duration-200 flex items-center gap-3 ${
                 formData.goals.includes(goal)
-                  ? 'border-purple-500 bg-purple-500/20 text-white' 
+                  ? 'border-purple-500 bg-purple-500/20 text-white'
                   : 'border-slate-700 bg-slate-800/30 text-slate-300 hover:border-purple-500/50'
               }`}
             >
@@ -196,7 +201,7 @@ const OnboardingFlow = () => {
     );
   };
 
-  const Step4_Details = () => (
+  const renderStep4_Details = () => (
     <div className="space-y-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-2">Almost there!</h2>
       <p className="text-slate-400 mb-8">Where should we send your custom strategy plan?</p>
@@ -265,9 +270,9 @@ const OnboardingFlow = () => {
     </div>
   );
 
-  const Step5_Success = () => (
+  const renderStep5_Success = () => (
     <div className="text-center py-8">
-      <motion.div
+      <motion.div 
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -279,6 +284,7 @@ const OnboardingFlow = () => {
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
         You're a Perfect Fit!
       </h2>
+      
       <p className="text-xl text-slate-300 mb-8 max-w-lg mx-auto">
         Based on your profile, we can help you scale to the next level. Let's discuss your custom strategy on a call.
       </p>
@@ -305,12 +311,13 @@ const OnboardingFlow = () => {
           </button>
         </Link>
       </div>
-
+      
       {/* Client Portal Teaser */}
       <div className="mt-12 pt-8 border-t border-slate-800">
         <p className="text-sm text-slate-400 mb-4">Existing client?</p>
         <Link to="/portal" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors">
-          <SafeIcon icon={FiLock} className="w-4 h-4" /> Access Client Portal
+          <SafeIcon icon={FiLock} className="w-4 h-4" />
+          Access Client Portal
         </Link>
       </div>
     </div>
@@ -331,11 +338,11 @@ const OnboardingFlow = () => {
             transition={{ duration: 0.3 }}
             className="w-full"
           >
-            {step === 1 && <Step1_BusinessType />}
-            {step === 2 && <Step2_Revenue />}
-            {step === 3 && <Step3_Goals />}
-            {step === 4 && <Step4_Details />}
-            {step === 5 && <Step5_Success />}
+            {step === 1 && renderStep1_BusinessType()}
+            {step === 2 && renderStep2_Revenue()}
+            {step === 3 && renderStep3_Goals()}
+            {step === 4 && renderStep4_Details()}
+            {step === 5 && renderStep5_Success()}
           </motion.div>
         </AnimatePresence>
       </div>
