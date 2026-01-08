@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection';
 import LeadMagnet from '../components/LeadMagnet';
 import FeatureOverview from '../components/FeatureOverview';
 import CaseStudy from '../components/CaseStudy';
+import PortfolioPreview from '../components/PortfolioPreview';
 import Services from '../components/Services';
 import Process from '../components/Process';
 import About from '../components/About';
@@ -26,6 +27,8 @@ const HomePage = () => {
         <LeadMagnet />
         <FeatureOverview />
         <CaseStudy />
+        {/* Added Portfolio Preview Section */}
+        <PortfolioPreview />
         <Services />
         <Process />
         <About />
