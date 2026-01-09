@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-const { FiDollarSign, FiTrendingUp, FiUsers, FiTarget, FiExternalLink, FiFilter } = FiIcons;
+const { FiDollarSign, FiTrendingUp, FiUsers, FiArrowDown } = FiIcons;
 
 const PortfolioPage = () => {
   useEffect(() => {
@@ -29,7 +29,7 @@ const PortfolioPage = () => {
       category: 'coaching',
       title: "Producers Wealth",
       client: "MC / Cashflow Ninja",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Money-Mindset-Homepage.jpg",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$1M+" },
         { icon: FiTrendingUp, label: "Conversion", value: "8.2%" }
@@ -42,7 +42,7 @@ const PortfolioPage = () => {
       category: 'coaching',
       title: "Mindfully Prepared Birth",
       client: "Kelly Colvin",
-      image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Mindfully-Prepared-Birth-Homepage.jpg",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$250K+" },
         { icon: FiUsers, label: "Students", value: "3.4K+" }
@@ -52,55 +52,107 @@ const PortfolioPage = () => {
     },
     {
       id: 3,
-      category: 'courses',
-      title: "Digital Marketing Masterclass",
-      client: "Sarah Johnson",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: 'ecommerce',
+      title: "Buy Crypto with Ramp Network",
+      client: "Ramp Network",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Buy-Crypto-With-Ramp-Network.jpg",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$500K+" },
         { icon: FiTrendingUp, label: "Conv. Rate", value: "15.3%" }
       ],
-      description: "Multi-step course launch funnel with evergreen webinar automation that consistently generates 6-figures quarterly.",
-      tags: ["Launch", "Evergreen"]
+      description: "Crypto purchase funnel with seamless onboarding and verification flows that increased conversion rates significantly.",
+      tags: ["Crypto", "Fintech"]
     },
     {
       id: 4,
-      category: 'coaching',
-      title: "Elite Fitness Coaching",
-      client: "Mike Rodriguez",
-      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: 'ecommerce',
+      title: "Sell Your Shopify Business",
+      client: "Empire Flippers",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Sell-Your-Shopify-Business-For-Cash.jpg",
       stats: [
         { icon: FiUsers, label: "Clients", value: "850+" },
         { icon: FiTrendingUp, label: "Conv. Rate", value: "18.7%" }
       ],
-      description: "Application funnel with automated qualification system that increased show-up rates and closed high-ticket coaching packages.",
-      tags: ["High-Ticket", "App Funnel"]
+      description: "Business brokerage funnel with qualification system that matched sellers with qualified buyers efficiently.",
+      tags: ["Marketplace", "B2B"]
     },
     {
       id: 5,
-      category: 'ecommerce',
-      title: "Premium Skincare Brand",
-      client: "Beauty Essentials Co",
-      image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: 'courses',
+      title: "Course Creator Academy",
+      client: "Digital Course Institute",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Digital-Course-Creator-Academy.jpg",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$320K+" },
         { icon: FiTrendingUp, label: "AOV", value: "$127" }
       ],
-      description: "E-commerce funnel with upsells and subscription model that tripled average order value and customer lifetime value.",
-      tags: ["Shopify", "Upsells"]
+      description: "Comprehensive course launch funnel with upsells and membership options that maximized customer lifetime value.",
+      tags: ["Education", "Membership"]
     },
     {
       id: 6,
-      category: 'saas',
-      title: "SaaS Product Launch",
-      client: "TechFlow Solutions",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: 'coaching',
+      title: "Elite Leadership Coaching",
+      client: "Executive Success Group",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Executive-Leadership-Coaching.jpg",
       stats: [
         { icon: FiDollarSign, label: "MRR", value: "$45K+" },
         { icon: FiUsers, label: "Users", value: "1.2K+" }
       ],
-      description: "SaaS trial funnel with onboarding sequence that converted free users to paid subscribers at industry-leading rates.",
-      tags: ["SaaS", "Onboarding"]
+      description: "High-ticket coaching application funnel with video testimonials and authority positioning elements.",
+      tags: ["Coaching", "B2B"]
+    },
+    {
+      id: 7,
+      category: 'courses',
+      title: "Crypto Wealth Academy",
+      client: "Future Finance",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Crypto-Investment-Course.jpg",
+      stats: [
+        { icon: FiDollarSign, label: "Launch", value: "$750K" },
+        { icon: FiUsers, label: "Members", value: "5K+" }
+      ],
+      description: "Comprehensive membership site and learning portal for cryptocurrency education with gamified progress tracking.",
+      tags: ["Membership", "Crypto"]
+    },
+    {
+      id: 8,
+      category: 'ecommerce',
+      title: "Premium Supplements Store",
+      client: "VitaBoost Co",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Health-Supplements-Store.jpg",
+      stats: [
+        { icon: FiDollarSign, label: "Ticket", value: "$5K" },
+        { icon: FiTrendingUp, label: "ROAS", value: "4.5x" }
+      ],
+      description: "E-commerce funnel with subscription model and one-click upsells that tripled average order value.",
+      tags: ["Shopify", "Subscription"]
+    },
+    {
+      id: 9,
+      category: 'saas',
+      title: "Project Management Tool",
+      client: "TaskFlow",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Project-Management-SaaS.jpg",
+      stats: [
+        { icon: FiUsers, label: "Trials", value: "10K+" },
+        { icon: FiTrendingUp, label: "Conv.", value: "12%" }
+      ],
+      description: "Modern SaaS landing page focused on product visualizations and interactive demos to drive free trial signups.",
+      tags: ["SaaS", "B2B"]
+    },
+    {
+      id: 10,
+      category: 'coaching',
+      title: "Real Estate Investing Mastery",
+      client: "Property Pros",
+      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Real-Estate-Investment-Course.jpg",
+      stats: [
+        { icon: FiDollarSign, label: "Pipeline", value: "$2M" },
+        { icon: FiUsers, label: "Leads", value: "500/mo" }
+      ],
+      description: "Webinar funnel teaching real estate strategies, leading to a high-end mentorship program application.",
+      tags: ["Webinar", "Real Estate"]
     }
   ];
 
@@ -116,31 +168,29 @@ const PortfolioPage = () => {
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <motion.h1
+            <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Our{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Work
-              </span>
+              Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Work</span>
             </motion.h1>
-            <motion.p
+            <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="text-xl text-slate-300 mb-12"
             >
-              Explore our collection of high-converting funnels and digital experiences.
+              Explore our collection of high-converting funnels and digital experiences. 
+              Hover over any project to view the full design.
             </motion.p>
-
+            
             {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-3">
               {categories.map((cat) => (
@@ -163,78 +213,97 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Projects Grid with Hover-Scroll Effect */}
       <section className="py-12 pb-24 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all duration-300"
-              >
-                {/* Image Container */}
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 opacity-60" />
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 right-4 z-20">
-                    <div className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      <SafeIcon icon={FiExternalLink} className="w-5 h-5 text-white" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <div className="text-xs font-semibold tracking-wider text-purple-400 uppercase mb-1">
-                        {project.client}
+          <motion.div 
+            layout
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <AnimatePresence>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  layout
+                  key={project.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all duration-300 flex flex-col shadow-xl"
+                >
+                  {/* Hover-Scroll Image Container */}
+                  <div 
+                    className="relative h-[500px] overflow-hidden bg-slate-800 cursor-pointer rounded-t-3xl"
+                    style={{
+                      backgroundImage: `url(${project.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'top center',
+                      backgroundRepeat: 'no-repeat',
+                      transition: 'background-position 3s ease-in-out'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundPosition = 'bottom center';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundPosition = 'top center';
+                    }}
+                  >
+                    {/* Hover Instruction Overlay */}
+                    <div className="absolute inset-0 z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-500 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end justify-center pb-6">
+                      <div className="bg-black/60 backdrop-blur-sm text-white text-xs px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                        <SafeIcon icon={FiArrowDown} className="w-3 h-3 animate-bounce" />
+                        <span className="font-medium">Hover to scroll</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                        {project.title}
-                      </h3>
                     </div>
+
+                    {/* Gradient Overlay for Better Text Readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-60 pointer-events-none" />
                   </div>
 
-                  <p className="text-slate-400 text-sm mb-6 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    {project.stats.map((stat, idx) => (
-                      <div key={idx} className="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
-                        <div className="flex items-center gap-2 mb-1">
-                          <SafeIcon icon={stat.icon} className="w-3 h-3 text-purple-400" />
-                          <span className="text-[10px] uppercase tracking-wider text-slate-400">{stat.label}</span>
+                  {/* Content Card */}
+                  <div className="p-6 flex-1 flex flex-col bg-gradient-to-b from-slate-900 to-slate-900/95">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <div className="text-xs font-semibold tracking-wider text-purple-400 uppercase mb-1">
+                          {project.client}
                         </div>
-                        <div className="text-lg font-bold text-white">{stat.value}</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                          {project.title}
+                        </h3>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                    
+                    <p className="text-slate-400 text-sm mb-6 line-clamp-2">
+                      {project.description}
+                    </p>
 
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <div className="grid grid-cols-2 gap-3 mb-6 mt-auto">
+                      {project.stats.map((stat, idx) => (
+                        <div key={idx} className="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
+                          <div className="flex items-center gap-2 mb-1">
+                            <SafeIcon icon={stat.icon} className="w-3 h-3 text-purple-400" />
+                            <span className="text-[10px] uppercase tracking-wider text-slate-400">{stat.label}</span>
+                          </div>
+                          <div className="text-lg font-bold text-white">{stat.value}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, idx) => (
+                        <span 
+                          key={idx} 
+                          className="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 

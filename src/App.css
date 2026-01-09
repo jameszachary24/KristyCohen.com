@@ -32,12 +32,49 @@ html {
   color: white;
 }
 
-/* Focus styles for accessibility */
-button:focus,
-input:focus,
-a:focus {
-  outline: 2px solid #8b5cf6;
+/* Enhanced focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #8b5cf6;
   outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gradient-to-r {
+    background: #8b5cf6 !important;
+  }
+  
+  .border-slate-700 {
+    border-color: #fff !important;
+  }
 }
 
 /* Disable animations for users who prefer reduced motion */
@@ -61,4 +98,9 @@ a:focus {
     backdrop-filter: blur(10px);
     background: rgba(15, 23, 42, 0.6);
   }
+}
+
+/* Focus trap for modals */
+.focus-trap:focus {
+  outline: none;
 }
