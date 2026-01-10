@@ -29,7 +29,7 @@ const PortfolioPage = () => {
       category: 'coaching',
       title: "Producers Wealth",
       client: "MC / Cashflow Ninja",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Money-Mindset-Homepage.jpg",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$1M+" },
         { icon: FiTrendingUp, label: "Conversion", value: "8.2%" }
@@ -42,7 +42,7 @@ const PortfolioPage = () => {
       category: 'coaching',
       title: "Mindfully Prepared Birth",
       client: "Kelly Colvin",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Mindfully-Prepared-Birth-Homepage.jpg",
+      image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$250K+" },
         { icon: FiUsers, label: "Students", value: "3.4K+" }
@@ -55,7 +55,7 @@ const PortfolioPage = () => {
       category: 'ecommerce',
       title: "Buy Crypto with Ramp Network",
       client: "Ramp Network",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Buy-Crypto-With-Ramp-Network.jpg",
+      image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$500K+" },
         { icon: FiTrendingUp, label: "Conv. Rate", value: "15.3%" }
@@ -68,7 +68,7 @@ const PortfolioPage = () => {
       category: 'ecommerce',
       title: "Sell Your Shopify Business",
       client: "Empire Flippers",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Sell-Your-Shopify-Business-For-Cash.jpg",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiUsers, label: "Clients", value: "850+" },
         { icon: FiTrendingUp, label: "Conv. Rate", value: "18.7%" }
@@ -81,7 +81,7 @@ const PortfolioPage = () => {
       category: 'courses',
       title: "Course Creator Academy",
       client: "Digital Course Institute",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Digital-Course-Creator-Academy.jpg",
+      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Revenue", value: "$320K+" },
         { icon: FiTrendingUp, label: "AOV", value: "$127" }
@@ -94,7 +94,7 @@ const PortfolioPage = () => {
       category: 'coaching',
       title: "Elite Leadership Coaching",
       client: "Executive Success Group",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Executive-Leadership-Coaching.jpg",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "MRR", value: "$45K+" },
         { icon: FiUsers, label: "Users", value: "1.2K+" }
@@ -107,7 +107,7 @@ const PortfolioPage = () => {
       category: 'courses',
       title: "Crypto Wealth Academy",
       client: "Future Finance",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Crypto-Investment-Course.jpg",
+      image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Launch", value: "$750K" },
         { icon: FiUsers, label: "Members", value: "5K+" }
@@ -120,7 +120,7 @@ const PortfolioPage = () => {
       category: 'ecommerce',
       title: "Premium Supplements Store",
       client: "VitaBoost Co",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Health-Supplements-Store.jpg",
+      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Ticket", value: "$5K" },
         { icon: FiTrendingUp, label: "ROAS", value: "4.5x" }
@@ -133,7 +133,7 @@ const PortfolioPage = () => {
       category: 'saas',
       title: "Project Management Tool",
       client: "TaskFlow",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Project-Management-SaaS.jpg",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiUsers, label: "Trials", value: "10K+" },
         { icon: FiTrendingUp, label: "Conv.", value: "12%" }
@@ -146,7 +146,7 @@ const PortfolioPage = () => {
       category: 'coaching',
       title: "Real Estate Investing Mastery",
       client: "Property Pros",
-      image: "https://www.kristycohen.com/hosted/images/a5a2f3c3-d6a4-4b6a-9cce-3f1c7b9e4d2a/Real-Estate-Investment-Course.jpg",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
       stats: [
         { icon: FiDollarSign, label: "Pipeline", value: "$2M" },
         { icon: FiUsers, label: "Leads", value: "500/mo" }
@@ -187,10 +187,9 @@ const PortfolioPage = () => {
               transition={{ delay: 0.3 }}
               className="text-xl text-slate-300 mb-12"
             >
-              Explore our collection of high-converting funnels and digital experiences. 
-              Hover over any project to view the full design.
+              Explore our collection of high-converting funnels and digital experiences. Hover over any project to view the full design.
             </motion.p>
-            
+
             {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-3">
               {categories.map((cat) => (
@@ -241,12 +240,8 @@ const PortfolioPage = () => {
                       backgroundRepeat: 'no-repeat',
                       transition: 'background-position 3s ease-in-out'
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundPosition = 'bottom center';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundPosition = 'top center';
-                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundPosition = 'bottom center'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundPosition = 'top center'; }}
                   >
                     {/* Hover Instruction Overlay */}
                     <div className="absolute inset-0 z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-500 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end justify-center pb-6">
@@ -255,7 +250,7 @@ const PortfolioPage = () => {
                         <span className="font-medium">Hover to scroll</span>
                       </div>
                     </div>
-
+                    
                     {/* Gradient Overlay for Better Text Readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-60 pointer-events-none" />
                   </div>
@@ -272,7 +267,7 @@ const PortfolioPage = () => {
                         </h3>
                       </div>
                     </div>
-                    
+
                     <p className="text-slate-400 text-sm mb-6 line-clamp-2">
                       {project.description}
                     </p>

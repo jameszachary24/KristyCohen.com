@@ -12,6 +12,7 @@ class ErrorBoundary extends React.Component {
       error: null,
       errorInfo: null 
     };
+    // Bind methods in constructor to ensure compatibility
     this.handleReset = this.handleReset.bind(this);
   }
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
 import LeadMagnet from '../components/LeadMagnet';
@@ -21,13 +22,16 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
+      <SEO 
+        title="Kristy Cohen | Funnel Strategist & Digital Entrepreneur"
+        description="Launch your first or next six or seven figure funnel with proven strategies. 300+ successful funnels built for coaches, course creators, and digital entrepreneurs."
+      />
       <Navigation />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <LeadMagnet />
         <FeatureOverview />
         <CaseStudy />
-        {/* Added Portfolio Preview Section */}
         <PortfolioPreview />
         <Services />
         <Process />

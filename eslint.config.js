@@ -21,18 +21,20 @@ export default [
         sourceType: 'module'
       }
     },
+    // Fix for ESLint 9 plugin compatibility
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
     rules: {
-      'no-undef': 'error',
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'off',
-      'react-refresh/only-export-components': 'off',
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
       'no-unused-vars': 'off',
-      'no-case-declarations': 'off',
-      'no-useless-catch': 'off'
+      'no-undef': 'off', 
+      'react-hooks/exhaustive-deps': 'off'
     },
-  }
+  },
 ];

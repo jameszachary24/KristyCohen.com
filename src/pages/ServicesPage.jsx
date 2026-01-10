@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import SEO from '../components/SEO';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-const { FiCheck, FiArrowRight, FiPenTool, FiSettings, FiBarChart, FiMail, FiZap, FiTarget, FiCode, FiTrendingUp } = FiIcons;
+const { FiCheck, FiArrowRight, FiPenTool, FiSettings, FiBarChart, FiTarget, FiCode, FiTrendingUp } = FiIcons;
 
 const ServicesPage = () => {
   useEffect(() => {
@@ -146,8 +147,12 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <SEO 
+        title="Services | Kristy Cohen - Funnel Building & Digital Marketing"
+        description="Comprehensive funnel building and digital marketing services. From design to automation to paid traffic management."
+      />
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20" />
@@ -157,16 +162,18 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Services That <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Drive Results</span>
+              Services That{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Drive Results
+              </span>
             </motion.h1>
-            
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -225,7 +232,10 @@ const ServicesPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Investment <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Packages</span>
+              Investment{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Packages
+              </span>
             </h2>
             <p className="text-xl text-slate-300">
               Choose the perfect package for your business goals
@@ -254,7 +264,6 @@ const ServicesPage = () => {
                     {pkg.price}
                   </div>
                   <p className="text-slate-300 mb-6">{pkg.description}</p>
-                  
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-slate-300">
@@ -263,7 +272,6 @@ const ServicesPage = () => {
                       </li>
                     ))}
                   </ul>
-
                   <Link to="/booking">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -289,7 +297,10 @@ const ServicesPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Get Started?</span>
+              Ready to{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Get Started?
+              </span>
             </h2>
             <p className="text-xl text-slate-300 mb-8">
               Schedule a free consultation to discuss your project
@@ -307,7 +318,7 @@ const ServicesPage = () => {
           </motion.div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );
