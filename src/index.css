@@ -2,19 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  :root {
+    /* Default (Modern Tech/Trust) - Navy/Teal */
+    --color-primary: 15 23 42; /* Slate-900 */
+    --color-secondary: 20 184 166; /* Teal-500 */
+    --color-accent: 56 189 248; /* Sky-400 */
+    --color-background: 255 255 255;
+    --color-text: 15 23 42;
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  [data-theme="brand"] {
+    /* Kristy's Brand (Creative/Warm) - Rose/Gold */
+    --color-primary: 225 29 72; /* Rose-600 */
+    --color-secondary: 245 158 11; /* Amber-500 */
+    --color-accent: 251 191 36; /* Amber-400 */
+    --color-background: 255 251 235; /* Amber-50 (Warm white) */
+    --color-text: 28 25 23; /* Stone-900 */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+  }
 
-#root {
-  width: 100%;
-  height: 100%;
+  body {
+    @apply bg-background text-text font-body transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
 }
