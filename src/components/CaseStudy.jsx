@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiDollarSign, FiTrendingUp, FiAward } = FiIcons;
 
@@ -77,7 +78,7 @@ const CaseStudy = () => {
               className="relative z-10 mb-6 rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10" />
-              <img 
+              <ImageOptimizer 
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Funnel Analytics Dashboard" 
                 className="w-full h-48 sm:h-64 object-cover"

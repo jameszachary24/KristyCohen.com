@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiStar, FiQuote } = FiIcons;
 
@@ -77,10 +78,11 @@ const Testimonials = () => {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-                    <img 
+                    <ImageOptimizer 
                       src={testimonial.image} 
                       alt={testimonial.name}
-                      className="relative w-14 h-14 rounded-full object-cover border-2 border-slate-700 group-hover:border-purple-400 transition-colors duration-300"
+                      wrapperClassName="relative w-14 h-14 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-purple-400 transition-colors duration-300"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div>

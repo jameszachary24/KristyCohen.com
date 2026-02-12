@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
+import ImageOptimizer from '../ImageOptimizer';
 
 const { FiCheck, FiCalendar, FiLock } = FiIcons;
 
@@ -28,7 +29,12 @@ const Step5_Success = () => (
     <div className="bg-white/5 rounded-2xl p-8 border border-white/10 max-w-sm mx-auto mb-8">
       <div className="flex items-center gap-4 mb-4">
         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-accent p-[2px]">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Kristy" className="w-full h-full rounded-full object-cover border-2 border-primary" />
+          <ImageOptimizer 
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+            alt="Kristy" 
+            wrapperClassName="w-full h-full rounded-full overflow-hidden border-2 border-primary"
+            className="w-full h-full object-cover" 
+          />
         </div>
         <div className="text-left">
           <div className="font-bold text-white">Discovery Call</div>

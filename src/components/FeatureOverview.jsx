@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiTrendingUp, FiUsers, FiTarget, FiArrowRight } = FiIcons;
 
@@ -22,7 +23,7 @@ const FeatureOverview = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-20 right-0 w-1/3 h-full opacity-10 pointer-events-none"
       >
-        <img 
+        <ImageOptimizer 
           src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
           alt="Growth Chart" 
           className="w-full h-full object-cover blur-sm rounded-l-3xl"
@@ -71,7 +72,7 @@ const FeatureOverview = () => {
           >
              <div className="relative w-full aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full blur-3xl animate-pulse" />
-                <img 
+                <ImageOptimizer 
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                   alt="Analytics" 
                   className="relative z-10 rounded-2xl shadow-2xl border border-slate-700/50 transform rotate-3 hover:-rotate-1 transition-transform duration-500"
