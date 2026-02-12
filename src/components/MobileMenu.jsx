@@ -69,7 +69,8 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
                     key={item.path}
                     to={item.path}
                     onClick={onClose}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-body ${
+                    aria-label={`Navigate to ${item.name}`}
+                    className={`flex items-center gap-3 px-4 py-4 rounded-xl transition-all duration-200 font-body ${
                       isActive(item.path)
                         ? 'bg-secondary/10 text-secondary border border-secondary/20'
                         : 'text-white/80 hover:bg-white/10 hover:text-white'
