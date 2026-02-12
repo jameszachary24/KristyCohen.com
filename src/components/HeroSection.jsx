@@ -96,7 +96,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className="relative mt-12 lg:mt-0"
           >
             <div className="relative z-10">
               {/* Main Large Image */}
@@ -120,7 +120,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
                 whileHover={{ scale: 1.05, rotate: -2 }}
-                className="absolute -top-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary z-20"
+                className="hidden sm:block absolute -top-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary z-20"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-accent/30 z-10" />
                 <img
@@ -136,7 +136,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
                 whileHover={{ scale: 1.05, rotate: 2 }}
-                className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary z-20"
+                className="hidden sm:block absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary z-20"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-secondary/30 z-10" />
                 <img
