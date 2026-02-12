@@ -9,6 +9,8 @@
 - [x] **Audit Navigation:** Ensure the navigation bar respects the new theme variables.
 - [x] **Implement Footer:** Update the footer to use the theme variables.
 - [x] **Mobile Responsiveness:** Check and fix any layout issues on small screens.
+- [x] **SEO Basics:** Add meta tags for "Sales Funnel Expert", "GoHighLevel", "ClickFunnels".
+- [ ] **Image Optimization:** Implement `ImageOptimizer` component for hero and portfolio images.
 
 ## Backlog
 - [ ] Add analytics tracking (if requested).

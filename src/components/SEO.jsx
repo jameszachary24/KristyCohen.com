@@ -7,7 +7,7 @@ const SEO = ({
   description = "Launch your first or next six or seven figure funnel with proven strategies. 300+ successful funnels built for coaches, course creators, and digital entrepreneurs.",
   image = "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   type = "website",
-  keywords = "funnel strategist, digital marketing, sales funnels, clickfunnels expert, business growth, marketing automation"
+  keywords = "Sales Funnel Expert, GoHighLevel, ClickFunnels, funnel strategist, digital marketing, sales funnels, business growth, marketing automation"
 }) => {
   const location = useLocation();
   const siteUrl = "https://kristycohen.com";
