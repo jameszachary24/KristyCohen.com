@@ -2,7 +2,7 @@
 
 ## Phase 1: Visual & Brand Polish
 - [x] **Visual Polish (Themes):** Implement Modern/Brand theme toggle and updated CSS variables.
-- [ ] **Hero Copy Refresh:** Sharpen headlines to focus on "High-Converting Funnels" and results.
+- [x] **Hero Copy Refresh:** Sharpen headlines to focus on "High-Converting Funnels" and results.
 - [ ] **Mobile Menu Fix:** Ensure touch targets are large enough and animation is smooth.
 - [ ] **SEO Basics:** Add meta tags for "Sales Funnel Expert", "GoHighLevel", "ClickFunnels".
 - [ ] **Image Optimization:** Implement `ImageOptimizer` component for hero and portfolio images.

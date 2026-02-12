@@ -42,11 +42,11 @@ const HeroSection = () => {
               className="text-5xl md:text-7xl font-bold leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-secondary/40 to-accent/40 bg-clip-text text-transparent">
-                Elevate Your
+                Build High-Converting
               </span>
               <br />
               <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-                Digital Business
+                Sales Funnels
               </span>
             </motion.h1>
 
@@ -56,7 +56,7 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Launch your first or next six or seven figure funnel and create the life freedom and happiness you deserve
+              Transform your traffic into revenue with proven funnel strategies that scale your business on autopilot.
             </motion.p>
 
             <motion.div
