@@ -1,6 +1,7 @@
 # Stephanie's Autonomous Task List
 
 ## Active Sprint
+- [ ] **Mobile Menu Fix:** Ensure touch targets are large enough, animation is smooth, and use theme variables.
 - [x] Optimize images for performance.
 - [x] **Hero Copy Refresh:** Sharpen headlines to focus on "High-Converting Funnels" and results.
 - [x] **Review and refine the "Client Onboarding" form wizard.**

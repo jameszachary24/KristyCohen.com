@@ -44,21 +44,21 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 bottom-0 w-80 bg-slate-900 border-l border-slate-800 z-50 lg:hidden overflow-y-auto"
+            transition={{ type: 'tween', ease: 'easeInOut', duration: 0.3 }}
+            className="fixed right-0 top-0 bottom-0 w-80 bg-primary border-l border-white/10 z-50 lg:hidden overflow-y-auto shadow-2xl"
           >
             <div className="p-6 space-y-6">
               {/* Header */}
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 className="text-xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent font-heading">
                   Menu
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                  className="p-3 hover:bg-white/10 rounded-lg transition-colors"
                   aria-label="Close menu"
                 >
-                  <SafeIcon icon={FiIcons.FiX} className="w-6 h-6 text-slate-400" />
+                  <SafeIcon icon={FiIcons.FiX} className="w-6 h-6 text-white/70" />
                 </button>
               </div>
 
@@ -69,10 +69,10 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
                     key={item.path}
                     to={item.path}
                     onClick={onClose}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-body ${
                       isActive(item.path)
-                        ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                        ? 'bg-secondary/10 text-secondary border border-secondary/20'
+                        : 'text-white/80 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     <SafeIcon icon={item.icon} className="w-5 h-5" />
@@ -82,7 +82,7 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
               </nav>
 
               {/* Divider */}
-              <div className="border-t border-slate-800" />
+              <div className="border-t border-white/10" />
 
               {/* User Section */}
               {user ? (
@@ -90,7 +90,7 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
                   <Link
                     to="/portal"
                     onClick={onClose}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all font-body"
                   >
                     <SafeIcon icon={FiIcons.FiLayout} className="w-5 h-5" />
                     <span className="font-medium">Dashboard</span>
@@ -100,7 +100,7 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
                       signOut();
                       onClose();
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all"
+                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all font-body"
                   >
                     <SafeIcon icon={FiIcons.FiLogOut} className="w-5 h-5" />
                     <span className="font-medium">Sign Out</span>
@@ -110,7 +110,7 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
                 <Link
                   to="/login"
                   onClick={onClose}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-all font-body"
                 >
                   <SafeIcon icon={FiLock} className="w-5 h-5" />
                   <span className="font-medium">Client Login</span>
@@ -119,7 +119,7 @@ const MobileMenu = ({ isOpen, onClose, user, signOut }) => {
 
               {/* CTA Button */}
               <Link to="/onboarding" onClick={onClose}>
-                <button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-500/25 transition-all">
+                <button className="w-full bg-gradient-to-r from-secondary to-accent text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-secondary/25 transition-all font-heading">
                   Get Started Now
                 </button>
               </Link>
