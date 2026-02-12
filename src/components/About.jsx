@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiArrowRight, FiMapPin, FiUsers, FiAward } = FiIcons;
 
@@ -115,10 +116,11 @@ const About = () => {
             >
               <div className="relative w-40 h-40 md:w-48 md:h-48">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-lg opacity-50" />
-                <img 
+                <ImageOptimizer 
                   src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
                   alt="Kristy Cohen" 
-                  className="relative w-full h-full object-cover rounded-full border-4 border-slate-900 shadow-2xl"
+                  className="w-full h-full object-cover"
+                  wrapperClassName="w-full h-full rounded-full border-4 border-slate-900 shadow-2xl"
                 />
               </div>
             </motion.div>

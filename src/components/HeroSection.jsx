@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiArrowRight, FiPlay } = FiIcons;
 
@@ -107,10 +108,12 @@ const HeroSection = () => {
                 className="relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-accent/20 rounded-[2rem] transform rotate-3 scale-105 blur-lg" />
-                <img
+                <ImageOptimizer
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Professional Business Woman"
-                  className="relative rounded-[2rem] shadow-2xl border border-white/20 w-full max-w-md mx-auto object-cover aspect-[4/5]"
+                  priority={true}
+                  wrapperClassName="relative rounded-[2rem] shadow-2xl border border-white/20 w-full max-w-md mx-auto aspect-[4/5] overflow-hidden"
+                  className="w-full h-full object-cover"
                 />
               </motion.div>
 
@@ -123,9 +126,10 @@ const HeroSection = () => {
                 className="hidden sm:block absolute -top-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary z-20"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-accent/30 z-10" />
-                <img
+                <ImageOptimizer
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Analytics Dashboard"
+                  priority={true}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -139,9 +143,10 @@ const HeroSection = () => {
                 className="hidden sm:block absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary z-20"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-secondary/30 z-10" />
-                <img
+                <ImageOptimizer
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Digital Marketing"
+                  priority={true}
                   className="w-full h-full object-cover"
                 />
               </motion.div>

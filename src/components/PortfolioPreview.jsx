@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiArrowRight, FiExternalLink } = FiIcons;
 
@@ -87,10 +88,11 @@ const PortfolioPreview = () => {
             >
               <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden mb-6">
                 <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors duration-500 z-10" />
-                <img 
+                <ImageOptimizer 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  wrapperClassName="w-full h-full"
                 />
                 
                 {/* Overlay Content */}

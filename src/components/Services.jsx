@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import ImageOptimizer from './ImageOptimizer';
 
 const { FiCheck, FiArrowRight, FiPenTool, FiSettings, FiBarChart, FiMail, FiZap, FiTarget } = FiIcons;
 
@@ -38,11 +39,14 @@ const Services = () => {
     <section className="py-20 relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-          alt="Background" 
-          className="w-full h-full object-cover opacity-5"
-        />
+        <div className="absolute inset-0 opacity-5">
+          <ImageOptimizer 
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            alt="Background" 
+            className="w-full h-full object-cover"
+            wrapperClassName="w-full h-full"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/90 to-slate-950" />
       </div>
 
