@@ -21,36 +21,36 @@ const Step5_Success = () => (
       You're a Perfect Fit!
     </h2>
     
-    <p className="text-xl text-slate-300 mb-8 max-w-lg mx-auto">
+    <p className="text-xl text-white/80 mb-8 max-w-lg mx-auto">
       Based on your profile, we can help you scale to the next level. Let's discuss your custom strategy on a call.
     </p>
 
-    <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 max-w-sm mx-auto mb-8">
+    <div className="bg-white/5 rounded-2xl p-8 border border-white/10 max-w-sm mx-auto mb-8">
       <div className="flex items-center gap-4 mb-4">
-        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-[2px]">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Kristy" className="w-full h-full rounded-full object-cover border-2 border-slate-900" />
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-accent p-[2px]">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Kristy" className="w-full h-full rounded-full object-cover border-2 border-primary" />
         </div>
         <div className="text-left">
           <div className="font-bold text-white">Discovery Call</div>
-          <div className="text-sm text-slate-400">with Kristy Cohen</div>
+          <div className="text-sm text-white/60">with Kristy Cohen</div>
         </div>
       </div>
       
-      <div className="flex items-center gap-2 text-slate-300 text-sm mb-6">
+      <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
         <SafeIcon icon={FiCalendar} className="w-4 h-4" />
         <span>30 Minute Strategy Session</span>
       </div>
 
       <Link to="/booking">
-        <button className="w-full bg-white text-slate-900 font-bold py-3 rounded-xl hover:bg-slate-200 transition-colors">
+        <button className="w-full bg-gradient-to-r from-secondary to-accent text-white font-bold py-3 rounded-xl hover:shadow-lg transition-all">
           Book Your Time Now
         </button>
       </Link>
     </div>
     
-    <div className="mt-12 pt-8 border-t border-slate-800">
-      <p className="text-sm text-slate-400 mb-4">Existing client?</p>
-      <Link to="/portal" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors">
+    <div className="mt-12 pt-8 border-t border-white/10">
+      <p className="text-sm text-white/60 mb-4">Existing client?</p>
+      <Link to="/portal" className="inline-flex items-center gap-2 text-secondary hover:text-accent font-medium transition-colors">
         <SafeIcon icon={FiLock} className="w-4 h-4" />
         Access Client Portal
       </Link>
