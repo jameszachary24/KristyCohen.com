@@ -2,12 +2,11 @@
 
 ## Active Sprint
 
-- [x] **Performance Optimization - Lighthouse Audit:** Run Lighthouse audit and fix critical issues (LCP, CLS, FID)
-- [x] **SEO Enhancement:** Add OpenGraph tags, Twitter cards, and JSON-LD structured data
-- [x] **Accessibility Improvements:** Ensure WCAG 2.1 AA compliance (aria labels, keyboard nav, contrast)
-- [x] **Portfolio Section Enhancement:** Add filtering/categories to portfolio grid
-- [x] **Speed Test:** Achieve 90+ scores on PageSpeed Insights
-- [x] [SPRINT COMPLETE] All Active Sprint items completed on 2026-02-13 (Accessibility, Portfolio Filtering, Speed optimizations). Waiting for PM to add new tasks. (Noticed 2026-02-12 22:25 ET; re-checked through 2026-02-13 03:40 ET)
+- [ ] **Blog Listing Page:** Create blog index page with category filtering
+- [ ] **Blog Post Templates:** Build individual post page template with byline & date
+- [ ] **Social Sharing:** Add share buttons for blog posts
+- [ ] **Blog SEO:** Optimize blog posts for search (canonical URLs, schema)
+- [ ] [SPRINT COMPLETE] All Active Sprint items completed on 2026-02-13. Waiting for PM to add new tasks.
 - [x] **Implement Route-Based Code Splitting:** Use `React.lazy` and `Suspense` for route components to optimize bundle loading.
 - [x] **Optimize Bundle Size:** Implement code splitting and manual chunking to reduce initial load size.
 - [x] **Sync TASK_LIST.md:** Update the high-level task list to reflect completed implementation status.
