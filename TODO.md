@@ -4,10 +4,10 @@
 
 - [x] **Performance Optimization - Lighthouse Audit:** Run Lighthouse audit and fix critical issues (LCP, CLS, FID)
 - [x] **SEO Enhancement:** Add OpenGraph tags, Twitter cards, and JSON-LD structured data
-- [ ] **Accessibility Improvements:** Ensure WCAG 2.1 AA compliance (aria labels, keyboard nav, contrast)
-- [ ] **Portfolio Section Enhancement:** Add filtering/categories to portfolio grid
+- [x] **Accessibility Improvements:** Ensure WCAG 2.1 AA compliance (aria labels, keyboard nav, contrast)
+- [x] **Portfolio Section Enhancement:** Add filtering/categories to portfolio grid
 - [ ] **Speed Test:** Achieve 90+ scores on PageSpeed Insights
-- [ ] [BLOCKED] No unchecked items remain in Active Sprint. Need Jessica/PM to add next task(s) or confirm sprint complete. (Noticed 2026-02-12 22:25 ET; re-checked 2026-02-12 22:40 ET; re-checked 2026-02-12 22:55 ET; re-checked 2026-02-12 23:10 ET; re-checked 2026-02-13 02:10 ET; re-checked 2026-02-13 02:25 ET; re-checked 2026-02-13 02:55 ET)
+- [ ] [RESUMED] No unchecked items remain in Active Sprint. Need Jessica/PM to add next task(s) or confirm sprint complete. (Noticed 2026-02-12 22:25 ET; re-checked 2026-02-12 22:40 ET; re-checked 2026-02-12 22:55 ET; re-checked 2026-02-12 23:10 ET; re-checked 2026-02-12 02:10 ET; re-checked 2026-02-12 02:25 ET; re-checked 2026-02-12 02:55 ET; re-checked 2026-02-13 03:40 ET - Accessibility Improvements completed, resuming.)
 - [x] **Implement Route-Based Code Splitting:** Use `React.lazy` and `Suspense` for route components to optimize bundle loading.
 - [x] **Optimize Bundle Size:** Implement code splitting and manual chunking to reduce initial load size.
 - [x] **Sync TASK_LIST.md:** Update the high-level task list to reflect completed implementation status.
