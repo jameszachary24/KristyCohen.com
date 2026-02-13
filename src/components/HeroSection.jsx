@@ -83,8 +83,9 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 className="group flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-200 px-6 py-4"
+                aria-label="Watch success story video"
               >
-                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors duration-200">
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors duration-200" aria-hidden="true">
                   <SafeIcon icon={FiPlay} className="w-5 h-5 ml-1" />
                 </div>
                 <span className="font-medium">Watch Success Story</span>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
@@ -7,8 +7,19 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
+
   return (
-    <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-md shadow-sm transition-colors duration-300">
+    <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-md shadow-sm transition-colors duration-300" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -31,9 +42,12 @@ const Navigation = () => {
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text hover:text-primary focus:outline-none"
+              className="text-text hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded-md p-1"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -46,16 +60,18 @@ const Navigation = () => {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-t border-text/10">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/services" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md">Services</Link>
-            <Link to="/portfolio" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md">Portfolio</Link>
-            <Link to="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md">About</Link>
-            <Link to="/booking" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary font-bold hover:bg-secondary/10 rounded-md">Book a Call</Link>
-          </div>
+      <div
+        id="mobile-menu"
+        className={`md:hidden ${isOpen ? 'block' : 'hidden'} bg-background border-t border-text/10`}
+        aria-label="Mobile navigation menu"
+      >
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3" role="menu">
+          <Link to="/services" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md" role="menuitem">Services</Link>
+          <Link to="/portfolio" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md" role="menuitem">Portfolio</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md" role="menuitem">About</Link>
+          <Link to="/booking" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary font-bold hover:bg-secondary/10 rounded-md" role="menuitem">Book a Call</Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

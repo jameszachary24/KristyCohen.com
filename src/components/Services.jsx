@@ -37,13 +37,13 @@ const Services = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" aria-labelledby="services-heading">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 opacity-5">
           <ImageOptimizer 
             src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-            alt="Background" 
+            alt="" 
             className="w-full h-full object-cover"
             wrapperClassName="w-full h-full"
           />
@@ -59,6 +59,7 @@ const Services = () => {
           className="text-center mb-16"
         >
           <motion.h2 
+            id="services-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -87,6 +88,8 @@ const Services = () => {
           whileInView="show"
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          role="list"
+          aria-label="Services offered"
         >
           {services.map((service, index) => (
             <motion.div 
@@ -94,6 +97,7 @@ const Services = () => {
               variants={item}
               whileHover={{ scale: 1.02, y: -2 }}
               className="group"
+              role="listitem"
             >
               <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/30 hover:border-purple-500/30 transition-all duration-300 h-full">
                 <div className="flex items-center gap-4">

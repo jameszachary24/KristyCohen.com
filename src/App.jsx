@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Analytics from './components/Analytics';
 import Navigation from './components/Navigation';
 import LoadingSpinner from './components/LoadingSpinner';
+import SkipToContent from './components/SkipToContent';
 
 // Lazy Loaded Pages
 const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -43,9 +44,11 @@ function App() {
                 <div className="app transition-colors duration-300">
                   <ScrollToTop />
                   <Analytics />
+                  <SkipToContent />
                   <Navigation />
                   <Suspense fallback={<LoadingSpinner />}>
-                    <Routes>
+                    <main id="main-content">
+                      <Routes>
                       <Route path="/" element={<HomePage />} />
                       <Route path="/services" element={<ServicesPage />} />
                       <Route path="/portfolio" element={<PortfolioPage />} />
@@ -76,6 +79,7 @@ function App() {
                       
                       <Route path="*" element={<NotFoundPage />} />
                     </Routes>
+                    </main>
                   </Suspense>
                 </div>
               </Router>

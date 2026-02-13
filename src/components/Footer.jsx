@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary border-t border-white/10 py-12 text-white transition-colors duration-300">
+    <footer className="bg-primary border-t border-white/10 py-12 text-white transition-colors duration-300" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -21,13 +21,15 @@ const Footer = () => {
             Kristy Cohen
           </motion.div>
           
-          <div className="flex flex-wrap justify-center gap-8 text-white/70">
-            <Link to="/services" className="hover:text-white transition-colors duration-200">Services</Link>
-            <Link to="/portfolio" className="hover:text-white transition-colors duration-200">Portfolio</Link>
-            <Link to="/blog" className="hover:text-white transition-colors duration-200">Blog</Link>
-            <Link to="/about" className="hover:text-white transition-colors duration-200">About</Link>
-            <Link to="/contact" className="hover:text-white transition-colors duration-200">Contact</Link>
-          </div>
+          <nav aria-label="Footer navigation">
+            <div className="flex flex-wrap justify-center gap-8 text-white/70">
+              <Link to="/services" className="hover:text-white transition-colors duration-200">Services</Link>
+              <Link to="/portfolio" className="hover:text-white transition-colors duration-200">Portfolio</Link>
+              <Link to="/blog" className="hover:text-white transition-colors duration-200">Blog</Link>
+              <Link to="/about" className="hover:text-white transition-colors duration-200">About</Link>
+              <Link to="/contact" className="hover:text-white transition-colors duration-200">Contact</Link>
+            </div>
+          </nav>
 
           <div className="flex flex-wrap justify-center gap-8 text-white/70 text-sm">
             <Link to="/privacy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
