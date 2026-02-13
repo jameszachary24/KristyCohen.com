@@ -13,8 +13,9 @@ export default defineConfig({
   server: {
     historyApiFallback: true,
   },
-   build: {
+  build: {
     outDir: 'dist',
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -22,8 +23,15 @@ export default defineConfig({
           'framer-motion': ['framer-motion'],
           'echarts': ['echarts', 'echarts-for-react'],
           'quest-sdk': ['@questlabs/react-sdk'],
-        }
+        },
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       }
-    }
-  }
+    },
+    chunkSizeWarningLimit: 500,
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
+  },
 });

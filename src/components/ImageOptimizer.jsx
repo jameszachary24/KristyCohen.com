@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const ImageOptimizer = ({ 
   src, 
   alt, 
-  className = '', // Applied to the image
-  wrapperClassName = '', // Applied to the container
+  className = '', 
+  wrapperClassName = '', 
   width,
   height,
   priority = false,
@@ -29,6 +29,8 @@ const ImageOptimizer = ({
         width={width}
         height={height}
         loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "low"}
+        decoding="async"
         onLoad={() => setIsLoaded(true)}
         onError={() => setHasError(true)}
         className={`w-full h-full object-cover transition-all duration-500 ${className}`}
