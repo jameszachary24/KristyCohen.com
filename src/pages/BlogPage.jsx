@@ -29,14 +29,14 @@ const BlogPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
+    <div className="min-h-screen bg-background text-text font-body">
       <Navigation />
       
       {/* Navbar Overlay Fix for Light Background */}
-      <div className="fixed top-0 left-0 right-0 h-24 bg-slate-950 -z-10" />
+      <div className="fixed top-0 left-0 right-0 h-24 bg-primary -z-10" />
 
       {/* Hero / Header */}
-      <div className="pt-32 pb-12 border-b border-slate-200 bg-slate-50">
+      <div className="pt-32 pb-12 border-b border-primary/20 bg-primary/5">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -44,10 +44,10 @@ const BlogPage = () => {
             className="flex flex-col md:flex-row justify-between items-end gap-6"
           >
             <div>
-              <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight mb-4 text-slate-900">
-                The Funnel <span className="text-purple-600">Feed</span>
+              <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight mb-4 text-text">
+                The Funnel <span className="text-secondary">Feed</span>
               </h1>
-              <p className="text-xl text-slate-500 max-w-xl font-light">
+              <p className="text-xl text-text/60 max-w-xl font-light">
                 Expert insights on funnel building, automation, and scaling your digital business.
               </p>
             </div>
@@ -65,13 +65,13 @@ const BlogPage = () => {
             {/* Search Bar Mobile */}
             <div className="lg:hidden mb-8">
               <div className="relative">
-                <SafeIcon icon={FiSearch} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                <SafeIcon icon={FiSearch} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text/40" />
                 <input 
                   type="text" 
                   placeholder="Search articles..." 
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-100 border-none rounded-full py-3 pl-12 pr-4 focus:ring-2 focus:ring-purple-500 outline-none"
+                  className="w-full bg-primary/10 border-none rounded-full py-3 pl-12 pr-4 focus:ring-2 focus:ring-secondary outline-none"
                 />
               </div>
             </div>
@@ -87,60 +87,60 @@ const BlogPage = () => {
                   className="group cursor-pointer border-b border-slate-100 pb-12 last:border-0"
                 >
                   <Link to={`/blog/${post.slug}`}>
-                    <div className="flex items-center gap-3 mb-3 text-xs font-medium uppercase tracking-wider text-slate-500">
-                      <span className="text-purple-600">{post.category}</span>
+                    <div className="flex items-center gap-3 mb-3 text-xs font-medium uppercase tracking-wider text-text/60">
+                      <span className="text-secondary">{post.category}</span>
                       <span>•</span>
                       <span>{post.date}</span>
                     </div>
                     
-                    <h2 className="text-2xl md:text-3xl font-bold mb-3 font-serif group-hover:text-purple-700 transition-colors leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading group-hover:text-secondary transition-colors leading-tight">
                       {post.title}
                     </h2>
                     
-                    <p className="text-slate-500 text-lg leading-relaxed mb-4 font-light line-clamp-3 md:line-clamp-2">
+                    <p className="text-text/60 text-lg leading-relaxed mb-4 font-light line-clamp-3 md:line-clamp-2">
                       {post.description}
                     </p>
                     
                     <div className="flex items-center justify-between mt-6">
-                      <div className="flex items-center gap-2 text-sm text-slate-400">
-                        <span className="bg-slate-100 px-2 py-1 rounded text-xs">{post.readTime}</span>
+                      <div className="flex items-center gap-2 text-sm text-text/40">
+                        <span className="bg-primary/10 px-2 py-1 rounded text-xs">{post.readTime}</span>
                         {/* TLDR Badge */}
-                        <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-bold">TL;DR</span>
+                        <span className="bg-secondary/20 text-secondary px-2 py-1 rounded text-xs font-bold">TL;DR</span>
                       </div>
                       <div className="flex items-center gap-4">
-                        <SafeIcon icon={FiBookmark} className="text-slate-300 hover:text-slate-600 transition-colors w-5 h-5" />
-                        <SafeIcon icon={FiMoreHorizontal} className="text-slate-300 hover:text-slate-600 transition-colors w-5 h-5" />
+                        <SafeIcon icon={FiBookmark} className="text-text/30 hover:text-text/60 transition-colors w-5 h-5" />
+                        <SafeIcon icon={FiMoreHorizontal} className="text-text/30 hover:text-text/60 transition-colors w-5 h-5" />
                       </div>
                     </div>
                   </Link>
                 </motion.article>
               ))
             ) : (
-              <div className="text-center py-20 text-slate-400">
+              <div className="text-center py-20 text-text/40">
                 No articles found matching your criteria.
               </div>
             )}
           </div>
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-4 pl-8 border-l border-slate-100">
+          <div className="hidden lg:block lg:col-span-4 pl-8 border-l border-primary/10">
             <div className="sticky top-32 space-y-10">
               
               {/* Search */}
               <div className="relative">
-                <SafeIcon icon={FiSearch} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                <SafeIcon icon={FiSearch} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text/40" />
                 <input 
                   type="text" 
                   placeholder="Search articles..." 
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-full py-3 pl-12 pr-4 focus:ring-1 focus:ring-purple-500 outline-none focus:bg-white transition-colors"
+                  className="w-full bg-primary/5 border border-primary/20 rounded-full py-3 pl-12 pr-4 focus:ring-1 focus:ring-secondary outline-none focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Topics */}
               <div>
-                <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">Discover more of what matters to you</h3>
+                <h3 className="font-bold text-text mb-4 text-sm uppercase tracking-wider">Discover more of what matters to you</h3>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((cat) => (
                     <button
@@ -148,8 +148,8 @@ const BlogPage = () => {
                       onClick={() => setSelectedCategory(cat)}
                       className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${
                         selectedCategory === cat 
-                          ? 'bg-purple-600 text-white' 
-                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                          ? 'bg-secondary text-white' 
+                          : 'bg-primary/10 text-text hover:bg-primary/20'
                       }`}
                     >
                       {cat}
@@ -163,10 +163,10 @@ const BlogPage = () => {
 
               {/* Quick Links */}
               <div>
-                <ul className="space-y-2 text-sm text-slate-500">
-                  <li><Link to="/about" className="hover:text-purple-600">About Kristy</Link></li>
-                  <li><Link to="/services" className="hover:text-purple-600">Work With Us</Link></li>
-                  <li><Link to="/booking" className="hover:text-purple-600">Book a Call</Link></li>
+                <ul className="space-y-2 text-sm text-text/60">
+                  <li><Link to="/about" className="hover:text-secondary">About Kristy</Link></li>
+                  <li><Link to="/services" className="hover:text-secondary">Work With Us</Link></li>
+                  <li><Link to="/booking" className="hover:text-secondary">Book a Call</Link></li>
                 </ul>
               </div>
 
