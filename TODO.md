@@ -12,6 +12,7 @@
 - [x] **Mobile Responsiveness:** Check and fix any layout issues on small screens.
 - [x] **SEO Basics:** Add meta tags for "Sales Funnel Expert", "GoHighLevel", "ClickFunnels".
 - [x] **Image Optimization:** Implement `ImageOptimizer` component for hero and portfolio images.
+- [x] **Refactor Testimonials:** Extract data to `src/data` and apply theme variables for visual consistency.
 
 ## Backlog
 - [ ] Add analytics tracking (if requested).
