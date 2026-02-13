@@ -22,7 +22,7 @@ const Navigation = () => {
             <Link to="/portfolio" className="text-text hover:text-primary transition-colors">Portfolio</Link>
             <Link to="/about" className="text-text hover:text-primary transition-colors">About</Link>
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-            <Link to="/contact" className="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all">
+            <Link to="/booking" className="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all font-semibold shadow-sm hover:shadow-md">
               Book a Call
             </Link>
           </div>
@@ -52,7 +52,7 @@ const Navigation = () => {
             <Link to="/services" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md">Services</Link>
             <Link to="/portfolio" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md">Portfolio</Link>
             <Link to="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-text hover:text-primary hover:bg-secondary/10 rounded-md">About</Link>
-            <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary font-bold hover:bg-secondary/10 rounded-md">Book a Call</Link>
+            <Link to="/booking" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary font-bold hover:bg-secondary/10 rounded-md">Book a Call</Link>
           </div>
         </div>
       )}
