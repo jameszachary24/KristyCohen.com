@@ -5,10 +5,12 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import NewsletterWidget from '../components/NewsletterWidget';
 import * as FiIcons from 'react-icons/fi';
+import * as BsIcons from 'react-icons/bs';
 import SafeIcon from '../common/SafeIcon';
 import { blogPosts } from '../data/blogPosts';
 
-const { FiArrowLeft, FiShare2, FiCheck, FiArrowRight } = FiIcons;
+const { FiArrowLeft, FiShare2, FiCheck, FiArrowRight, FiFacebook, FiTwitter, FiLinkedin } = FiIcons;
+const { BsFacebook, BsTwitterX, BsLinkedin } = BsIcons;
 
 const BlogPostPage = () => {
   const { slug } = useParams();
@@ -52,6 +54,9 @@ const BlogPostPage = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const getShareUrl = () => encodeURIComponent(window.location.href);
+  const getShareTitle = () => encodeURIComponent(post.title);
+
   return (
     <div className="min-h-screen bg-background text-text font-body">
       <Navigation />
@@ -94,7 +99,39 @@ const BlogPostPage = () => {
                 </div>
               </div>
               
-              <div className="relative">
+              <div className="flex items-center gap-3">
+                {/* Social Share Buttons */}
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${getShareUrl()}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-text/40 hover:text-[#1877F2] transition-colors"
+                    title="Share on Facebook"
+                  >
+                    <BsFacebook className="w-5 h-5" />
+                  </a>
+                  <a
+                    href={`https://twitter.com/intent/tweet?url=${getShareUrl()}&text=${getShareTitle()}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-text/40 hover:text-text transition-colors"
+                    title="Share on X (Twitter)"
+                  >
+                    <BsTwitterX className="w-5 h-5" />
+                  </a>
+                  <a
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${getShareUrl()}&title=${getShareTitle()}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-text/40 hover:text-[#0A66C2] transition-colors"
+                    title="Share on LinkedIn"
+                  >
+                    <BsLinkedin className="w-5 h-5" />
+                  </a>
+                </div>
+                
+                <div className="relative">
                  <button 
                   onClick={handleShare}
                   className="p-2 text-text/40 hover:text-secondary transition-colors flex items-center gap-2"
@@ -115,6 +152,7 @@ const BlogPostPage = () => {
                    )}
                  </AnimatePresence>
               </div>
+            </div>
             </div>
           </header>
 

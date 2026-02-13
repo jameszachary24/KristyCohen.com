@@ -2,7 +2,7 @@
 
 ## Active Sprint
 
-- [ ] **Blog Listing Page:** Create blog index page with category filtering
+- [x] **Blog Listing Page:** Create blog index page with category filtering
 - [ ] **Blog Post Templates:** Build individual post page template with byline & date
 - [ ] **Social Sharing:** Add share buttons for blog posts
 - [ ] **Blog SEO:** Optimize blog posts for search (canonical URLs, schema)
