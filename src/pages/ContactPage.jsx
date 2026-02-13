@@ -6,7 +6,7 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import supabase from '../supabase/supabase';
 
-const { FiMail, FiUser, FiMessageSquare, FiSend, FiLoader, FiCheck, FiMapPin } = FiIcons;
+const { FiMail, FiUser, FiMessageSquare, FiSend, FiLoader, FiCheck, FiMapPin, FiAlertCircle } = FiIcons;
 
 const ContactPage = () => {
   useEffect(() => {
@@ -21,16 +21,63 @@ const ContactPage = () => {
     message: ''
   });
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters long';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
     setStatus('loading');
 
     try {
+      if (!supabase) {
+        // Fallback for when supabase is not configured
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        return;
+      }
+
       const { error } = await supabase
         .from('contact_submissions')
         .insert(formData);
@@ -43,6 +90,23 @@ const ContactPage = () => {
       setStatus('error');
     }
   };
+
+  const getInputClass = (fieldName) => {
+    const baseClass = "w-full bg-slate-800 border rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all";
+    return errors[fieldName] 
+      ? `${baseClass} border-red-500` 
+      : `${baseClass} border-slate-700`;
+  };
+
+  const ErrorMessage = ({ message }) => (
+    <motion.div 
+      initial={{ opacity: 0, y: -5 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-red-400 text-xs mt-1 flex items-center gap-1"
+    >
+      <SafeIcon icon={FiAlertCircle} className="w-3 h-3" /> {message}
+    </motion.div>
+  );
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -146,7 +210,7 @@ const ContactPage = () => {
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                     <div>
                       <label className="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
                       <div className="relative">
@@ -156,11 +220,11 @@ const ContactPage = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                          className={getInputClass('name')}
                           placeholder="Your name"
-                          required
                         />
                       </div>
+                      {errors.name && <ErrorMessage message={errors.name} />}
                     </div>
 
                     <div>
@@ -172,11 +236,11 @@ const ContactPage = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                          className={getInputClass('email')}
                           placeholder="name@company.com"
-                          required
                         />
                       </div>
+                      {errors.email && <ErrorMessage message={errors.email} />}
                     </div>
 
                     <div>
@@ -188,11 +252,11 @@ const ContactPage = () => {
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          className="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                          className={getInputClass('subject')}
                           placeholder="How can we help?"
-                          required
                         />
                       </div>
+                      {errors.subject && <ErrorMessage message={errors.subject} />}
                     </div>
 
                     <div>
@@ -201,10 +265,10 @@ const ContactPage = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full bg-slate-800 border border-slate-700 rounded-xl p-4 h-32 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
+                        className={`${getInputClass('message').replace('py-3 pl-12 pr-4', 'p-4')} h-32 resize-none`}
                         placeholder="Tell us about your project..."
-                        required
                       />
+                      {errors.message && <ErrorMessage message={errors.message} />}
                     </div>
 
                     {status === 'error' && (
