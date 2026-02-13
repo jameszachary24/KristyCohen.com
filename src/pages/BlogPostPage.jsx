@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -18,6 +19,8 @@ const BlogPostPage = () => {
   const [copied, setCopied] = useState(false);
   
   const post = blogPosts.find(p => p.slug === slug);
+  const siteUrl = "https://kristycohen.com";
+  const currentUrl = `${siteUrl}/blog/${slug}`;
 
   // Get Related Posts: Same category, excluding current post, limit to 3
   const relatedPosts = blogPosts
@@ -59,6 +62,59 @@ const BlogPostPage = () => {
 
   return (
     <div className="min-h-screen bg-background text-text font-body">
+      <Helmet>
+        <title>{post.title} | Kristy Cohen Blog</title>
+        <meta name="description" content={post.description} />
+        <meta name="keywords" content={`${post.category}, funnel strategy, digital marketing, ${post.title.toLowerCase()}`} />
+        <link rel="canonical" href={currentUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.description} />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+        <meta property="og:site_name" content="Kristy Cohen" />
+        <meta property="article:published_time" content={`2023-${post.date.split(', ')[1]}`} />
+        <meta property="article:author" content="Kristy Cohen" />
+        <meta property="article:section" content={post.category} />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={currentUrl} />
+        <meta property="twitter:title" content={post.title} />
+        <meta property="twitter:description" content={post.description} />
+        <meta property="twitter:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+        
+        {/* Article Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "description": post.description,
+            "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            "datePublished": `2023-${post.date.split(', ')[1]}`,
+            "author": {
+              "@type": "Person",
+              "name": "Kristy Cohen"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Kristy Cohen",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": currentUrl
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <Navigation />
       
       {/* Navbar Overlay Fix */}

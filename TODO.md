@@ -3,8 +3,8 @@
 ## Active Sprint
 
 - [x] **Blog Listing Page:** Create blog index page with category filtering
-- [ ] **Blog Post Templates:** Build individual post page template with byline & date
-- [ ] **Social Sharing:** Add share buttons for blog posts
+- [x] **Blog Post Templates:** Build individual post page template with byline & date
+- [x] **Social Sharing:** Add share buttons for blog posts
 - [ ] **Blog SEO:** Optimize blog posts for search (canonical URLs, schema)
 - [ ] [SPRINT COMPLETE] All Active Sprint items completed on 2026-02-13. Waiting for PM to add new tasks.
 - [x] **Implement Route-Based Code Splitting:** Use `React.lazy` and `Suspense` for route components to optimize bundle loading.
