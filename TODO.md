@@ -13,7 +13,7 @@
 - [x] **SEO Basics:** Add meta tags for "Sales Funnel Expert", "GoHighLevel", "ClickFunnels".
 - [x] **Image Optimization:** Implement `ImageOptimizer` component for hero and portfolio images.
 - [x] **Refactor Testimonials:** Extract data to `src/data` and apply theme variables for visual consistency.
-- [ ] **Booking CTA:** Ensure "Book a Call" links to a calendar (/booking) and is sticky/prominent.
+- [x] **Booking CTA:** Ensure "Book a Call" links to a calendar (/booking) and is sticky/prominent.
 
 ## Backlog
 - [ ] Add analytics tracking (if requested).
