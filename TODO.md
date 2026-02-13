@@ -2,8 +2,8 @@
 
 ## Active Sprint
 
-- [ ] **Performance Optimization - Lighthouse Audit:** Run Lighthouse audit and fix critical issues (LCP, CLS, FID)
-- [ ] **SEO Enhancement:** Add OpenGraph tags, Twitter cards, and JSON-LD structured data
+- [x] **Performance Optimization - Lighthouse Audit:** Run Lighthouse audit and fix critical issues (LCP, CLS, FID)
+- [x] **SEO Enhancement:** Add OpenGraph tags, Twitter cards, and JSON-LD structured data
 - [ ] **Accessibility Improvements:** Ensure WCAG 2.1 AA compliance (aria labels, keyboard nav, contrast)
 - [ ] **Portfolio Section Enhancement:** Add filtering/categories to portfolio grid
 - [ ] **Speed Test:** Achieve 90+ scores on PageSpeed Insights
