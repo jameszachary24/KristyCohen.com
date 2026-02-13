@@ -7,6 +7,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import ErrorBoundary from './components/ErrorBoundary';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
+import Analytics from './components/Analytics';
 import Navigation from './components/Navigation';
 
 // Pages
@@ -40,6 +41,7 @@ function App() {
               <Router>
                 <div className="app transition-colors duration-300">
                   <ScrollToTop />
+                  <Analytics />
                   <Navigation />
                   <Routes>
                     <Route path="/" element={<HomePage />} />

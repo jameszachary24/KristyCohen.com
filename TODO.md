@@ -17,4 +17,4 @@
 - [x] **Booking CTA:** Ensure "Book a Call" links to a calendar (/booking) and is sticky/prominent.
 
 ## Backlog
-- [ ] Add analytics tracking (if requested).
+- [x] Add analytics tracking (if requested).
