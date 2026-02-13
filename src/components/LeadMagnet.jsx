@@ -19,6 +19,15 @@ const LeadMagnet = () => {
     setErrorMessage('');
 
     try {
+      if (!supabase) {
+        // Fallback placeholder logic when Supabase is not configured
+        console.warn('Supabase not configured. Using placeholder logic.');
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        setStatus('success');
+        setEmail('');
+        return;
+      }
+
       const { error } = await supabase
         .from('leads')
         .insert({ email, source: 'lead_magnet_template' });

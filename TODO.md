@@ -1,6 +1,7 @@
 # Stephanie's Autonomous Task List
 
 ## Active Sprint
+- [x] **Connect Lead Magnet:** Add fallback logic for when Supabase is missing/unconfigured.
 - [x] **Mobile Menu Fix:** Ensure touch targets are large enough, animation is smooth, and use theme variables.
 - [x] Optimize images for performance.
 - [x] **Hero Copy Refresh:** Sharpen headlines to focus on "High-Converting Funnels" and results.
@@ -10,7 +11,7 @@
 - [x] **Implement Footer:** Update the footer to use the theme variables.
 - [x] **Mobile Responsiveness:** Check and fix any layout issues on small screens.
 - [x] **SEO Basics:** Add meta tags for "Sales Funnel Expert", "GoHighLevel", "ClickFunnels".
-- [ ] **Image Optimization:** Implement `ImageOptimizer` component for hero and portfolio images.
+- [x] **Image Optimization:** Implement `ImageOptimizer` component for hero and portfolio images.
 
 ## Backlog
 - [ ] Add analytics tracking (if requested).
