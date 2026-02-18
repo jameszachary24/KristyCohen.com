@@ -4,6 +4,7 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import ImageOptimizer from '../components/ImageOptimizer';
 
 const { FiStar, FiQuote, FiFilter } = FiIcons;
 
@@ -241,10 +242,11 @@ const ReviewsPage = () => {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-                      <img 
+                      <ImageOptimizer 
                         src={testimonial.image} 
                         alt={testimonial.name}
-                        className="relative w-16 h-16 rounded-full object-cover border-2 border-slate-700 group-hover:border-purple-400 transition-colors duration-300"
+                        wrapperClassName="relative w-16 h-16 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-purple-400 transition-colors duration-300"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1">

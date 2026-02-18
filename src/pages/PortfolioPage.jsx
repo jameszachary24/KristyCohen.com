@@ -4,6 +4,7 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import ImageOptimizer from '../components/ImageOptimizer';
 
 const { FiDollarSign, FiTrendingUp, FiUsers, FiArrowDown } = FiIcons;
 

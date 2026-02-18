@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import NewsletterWidget from '../components/NewsletterWidget';
+import ImageOptimizer from '../components/ImageOptimizer';
 import * as FiIcons from 'react-icons/fi';
 import * as BsIcons from 'react-icons/bs';
 import SafeIcon from '../common/SafeIcon';
@@ -143,7 +144,7 @@ const BlogPostPage = () => {
             <div className="flex items-center justify-between border-y border-primary/10 py-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/20 overflow-hidden">
-                   <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Kristy" className="w-full h-full object-cover" />
+                   <ImageOptimizer src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Kristy" className="w-full h-full object-cover" wrapperClassName="w-full h-full" />
                 </div>
                 <div>
                   <div className="font-bold text-text">Kristy Cohen</div>

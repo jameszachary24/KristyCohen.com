@@ -4,6 +4,7 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import ImageOptimizer from '../components/ImageOptimizer';
 
 const { FiAward, FiUsers, FiMapPin, FiTarget, FiHeart, FiTrendingUp, FiCoffee } = FiIcons;
 
@@ -116,14 +117,19 @@ const AboutPage = () => {
               <div className="relative w-full max-w-md mx-auto">
                 {/* Main Image */}
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-30" />
-                <motion.img
+                <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Kristy Cohen"
-                  className="relative rounded-3xl shadow-2xl border-4 border-slate-900 w-full"
-                />
+                >
+                  <ImageOptimizer
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    alt="Kristy Cohen"
+                    priority={true}
+                    wrapperClassName="relative rounded-3xl shadow-2xl border-4 border-slate-900 w-full overflow-hidden"
+                    className="w-full h-auto"
+                  />
+                </motion.div>
 
                 {/* Floating Badge - Top Right */}
                 <motion.div
