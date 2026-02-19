@@ -5,6 +5,7 @@ import SafeIcon from '../common/SafeIcon';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import ImageOptimizer from '../components/ImageOptimizer';
+import { getOptimizedImageUrl } from '../utils/imageUtils';
 
 const { FiDollarSign, FiTrendingUp, FiUsers, FiArrowDown } = FiIcons;
 
@@ -231,19 +232,39 @@ const PortfolioPage = () => {
                   transition={{ duration: 0.3 }}
                   className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-purple-500/50 transition-all duration-300 flex flex-col shadow-xl"
                 >
-                  {/* Hover-Scroll Image Container */}
+                  {/* Hover-Scroll Image Container - Using ImageOptimizer for performance */}
                   <div 
                     className="relative h-[500px] overflow-hidden bg-slate-800 cursor-pointer rounded-t-3xl"
-                    style={{
-                      backgroundImage: `url(${project.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'top center',
-                      backgroundRepeat: 'no-repeat',
-                      transition: 'background-position 3s ease-in-out'
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundPosition = 'bottom center'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.backgroundPosition = 'top center'; }}
                   >
+                    <ImageOptimizer
+                      src={getOptimizedImageUrl(project.image, 800)}
+                      alt={project.title}
+                      priority={false}
+                      className="w-full h-full object-cover"
+                      wrapperClassName="absolute inset-0"
+                      style={{
+                        backgroundPosition: 'top center',
+                        transition: 'background-position 3s ease-in-out'
+                      }}
+                    />
+                    {/* Custom hover effect for optimized image */}
+                    <style>{`
+                      .project-card:hover .object-cover {
+                        transform: scale(1.05);
+                        transition: transform 3s ease-in-out;
+                      }
+                    `}</style>
+                    <div 
+                      className="absolute inset-0 project-card"
+                      onMouseEnter={(e) => { 
+                        const img = e.currentTarget.querySelector('img');
+                        if (img) img.style.objectPosition = 'bottom center';
+                      }}
+                      onMouseLeave={(e) => { 
+                        const img = e.currentTarget.querySelector('img');
+                        if (img) img.style.objectPosition = 'top center';
+                      }}
+                    />
                     {/* Hover Instruction Overlay */}
                     <div className="absolute inset-0 z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-500 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end justify-center pb-6">
                       <div className="bg-black/60 backdrop-blur-sm text-white text-xs px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
